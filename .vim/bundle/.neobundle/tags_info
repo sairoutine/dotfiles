@@ -1,0 +1,12 @@
+lightline.vim
+neobundle.vim
+neocomplcache
+neosnippet
+neosnippet-snippets
+nerdtree
+syntastic
+vim-autoclose
+vim-quickrun
+vim-smartchr
+vim-snippets
+vim-tags
