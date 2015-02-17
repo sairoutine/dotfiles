@@ -289,9 +289,12 @@ if has('syntax')
         autocmd VimEnter,WinEnter * let w:m1 = matchadd("Zenkaku", '[　０１２３４５６７８９]')
         autocmd VimEnter,WinEnter * let w:m2 = matchadd("Zenkaku", '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
         autocmd VimEnter,WinEnter * let w:m3 = matchadd("Zenkaku", '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
+		autocmd VimEnter,WinEnter * match Zenkaku /\s\+$/
 	augroup END
     call Zenkaku()
 endif
+
+
 "
 " .pm ファイルのテンプレ設定
 "
