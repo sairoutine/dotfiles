@@ -276,7 +276,22 @@ nmap g/ <Plug>(easymotion-sn)
 xmap g/ <Plug>(easymotion-sn)
 omap g/ <Plug>(easymotion-tn)
 
+" 全角文字をハイライト表示
+function! Zenkaku()
+    highlight Zenkaku cterm=reverse ctermfg=white gui=reverse guifg=white
+endfunction
 
+" 全角文字のハイライト表示
+if has('syntax')
+    augroup Zenkaku
+        autocmd!
+        autocmd ColorScheme       * call Zenkaku()
+        autocmd VimEnter,WinEnter * let w:m1 = matchadd("Zenkaku", '[　０１２３４５６７８９]')
+        autocmd VimEnter,WinEnter * let w:m2 = matchadd("Zenkaku", '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
+        autocmd VimEnter,WinEnter * let w:m3 = matchadd("Zenkaku", '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
+	augroup END
+    call Zenkaku()
+endif
 "
 " .pm ファイルのテンプレ設定
 "
