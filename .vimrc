@@ -41,8 +41,6 @@ NeoBundle 'itchyny/lightline.vim'
 " Vim Easymotion
 NeoBundle 'Lokaltog/vim-easymotion'
 
-" Vim sneak
-NeoBundle 'justinmk/vim-sneak'
 
 " プラグインの設定 終了 ---------------------
 
@@ -278,16 +276,6 @@ nmap g/ <Plug>(easymotion-sn)
 xmap g/ <Plug>(easymotion-sn)
 omap g/ <Plug>(easymotion-tn)
 
-"
-" Vim-Sneak Config
-"
-
-nmap f <Plug>Sneak_s
-nmap F <Plug>Sneak_S
-xmap f <Plug>Sneak_s
-xmap F <Plug>Sneak_S
-omap f <Plug>Sneak_s
-omap F <Plug>Sneak_S
 
 "
 " .pm ファイルのテンプレ設定
