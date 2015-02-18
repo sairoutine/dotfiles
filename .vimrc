@@ -91,7 +91,7 @@ colorscheme elflord           "カラー設定
 vmap <C-y> :w !xsel -ib<CR><CR>
 
 " tagsジャンプの時に複数ある時は一覧表示
-nnoremap <C-]> g<C-]> 
+nnoremap <C-]> g<C-]>
 
 set tags=$HOME/tags
 
@@ -108,7 +108,7 @@ set ignorecase
 " 混在しているときは区別する
 set smartcase
 
-" Dynamic SQL completionの無効 
+" Dynamic SQL completionの無効
 let g:omni_sql_no_default_maps = 1
 
 " MySQLをデフォのSQL構文に
@@ -128,7 +128,7 @@ let php_parent_error_close = 1
 " mysqlの場合
 let g:sql_type_default='mysql'
 
-" F3 で手軽に新規タブ 
+" F3 で手軽に新規タブ
 nnoremap <F3> :tabe<CR>
 
 "---------------------------
@@ -210,7 +210,7 @@ let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    
+
 " SuperTab like snippets behavior.
 "imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 "smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -239,7 +239,7 @@ xmap s <Plug>(easymotion-s2)
 omap z <Plug>(easymotion-s2)
 " Of course, you can map to any key you want such as `<Space>`
 " map <Space>(easymotion-s2)
-  
+
 " Turn on case sensitive feature
 let g:EasyMotion_smartcase = 1
 
@@ -252,14 +252,14 @@ map <Leader>k <Plug>(easymotion-k)
 
 " keep cursor column with `JK` motions
 let g:EasyMotion_startofline = 0
-  
+
   " =======================================
  " General Configuration
 " =======================================
 let g:EasyMotion_keys = ';HKLYUIOPNM,QWERTASDGZXCVBJF'
 " Show target key with upper case to improve readability
 let g:EasyMotion_use_upper = 1
-" Jump to first match with enter  
+" Jump to first match with enter
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 
