@@ -1,10 +1,10 @@
-alias ls='ls -aG'
+alias ls='ls --color=auto -aG'
 
 PS1="[\u@\h \W]\\$ "
 
 cdls ()
 {
-    \cd "$@" && ls -a
+    \cd "$@" && ls
 }
 alias cd="cdls"
 
