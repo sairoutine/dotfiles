@@ -90,6 +90,8 @@ autocmd BufNewFile *.pl  0r $HOME/.vim/template/perl-script.txt
 autocmd BufNewFile *.t   0r $HOME/.vim/template/perl-test.txt
 autocmd BufNewFile *.php 0r $HOME/.vim/template/php-script.txt
 
+" BackSpaceを有効にする
+set backspace=indent,eol,start
 
 colorscheme elflord           "カラー設定
 
