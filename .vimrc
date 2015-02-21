@@ -47,6 +47,11 @@ NeoBundle 'itchyny/lightline.vim'
 " Vim Easymotion
 NeoBundle 'Lokaltog/vim-easymotion'
 
+" Git Command
+NeoBundle 'tpope/vim-fugitive'
+
+" Open file as useful
+NeoBundle 'kana/vim-altr'
 
 " プラグインの設定 終了 ---------------------
 
