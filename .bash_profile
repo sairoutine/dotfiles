@@ -1,4 +1,8 @@
-alias ls='ls --color=auto -aG'
+if [ "$(uname)" == 'Darwin' ]; then
+	alias ls='ls -aG'
+else
+	alias ls='ls --color=auto -aG'
+fi
 
 PS1="[\u@\h \W]\\$ "
 
