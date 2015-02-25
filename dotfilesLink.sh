@@ -1,9 +1,9 @@
 #!/bin/sh
 
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.vim ~/.vim
-ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
-ln -sf ~/dotfiles/.ackrc ~/.ackrc
+ln -snf ~/dotfiles/.vimrc ~/.vimrc
+ln -snf ~/dotfiles/.vim ~/.vim
+ln -snf ~/dotfiles/.bash_profile ~/.bash_profile
+ln -snf ~/dotfiles/.ackrc ~/.ackrc
 
 if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
 	mkdir -p ~/.vim/bundle
