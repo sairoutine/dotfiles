@@ -53,6 +53,9 @@ NeoBundle 'tpope/vim-fugitive'
 " Open file as useful
 NeoBundle 'kana/vim-altr'
 
+" タグリスト
+NeoBundle "vim-scripts/taglist.vim"
+
 " プラグインの設定 終了 ---------------------
 
 call neobundle#end()
@@ -158,7 +161,7 @@ nnoremap <f2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " NERDTree の幅
-let g:NERDTreeWinSize=20
+let g:NERDTreeWinSize=40
 
 " デフォルトでNERDTREE を展開する
 " autocmd VimEnter * execute 'NERDTree'
@@ -288,6 +291,14 @@ let g:EasyMotion_space_jump_first = 1
 nmap g/ <Plug>(easymotion-sn)
 xmap g/ <Plug>(easymotion-sn)
 omap g/ <Plug>(easymotion-tn)
+
+" ========================================
+" taglist.vim
+" ========================================
+let Tlist_Show_One_File = 1             " 現在表示中のファイルのみのタグしか表示しない
+let Tlist_Use_Right_Window = 1          " 右側にtag listのウインドうを表示する
+let Tlist_Exit_OnlyWindow = 1           " taglistのウインドウだけならVimを閉じる
+nnoremap <F4> :TlistToggle<CR>
 
 " 全角文字をハイライト表示
 function! Zenkaku()
