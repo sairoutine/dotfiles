@@ -56,6 +56,9 @@ NeoBundle 'kana/vim-altr'
 " タグリスト
 NeoBundle "vim-scripts/taglist.vim"
 
+" Unite
+NeoBundle 'Shougo/unite.vim'
+
 " プラグインの設定 終了 ---------------------
 
 call neobundle#end()
@@ -150,6 +153,13 @@ nnoremap <F3> :tabe<CR>
 " ノーマルモードでも改行できる
 noremap <CR> i<CR><ESC>
 
+" 検索結果を画面中央に
+"nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 
 
 "---------------------------
