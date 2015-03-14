@@ -147,6 +147,11 @@ let g:sql_type_default='mysql'
 " F3 で手軽に新規タブ
 nnoremap <F3> :tabe<CR>
 
+" ノーマルモードでも改行できる
+noremap <CR> i<CR><ESC>
+
+
+
 "---------------------------
 " Start NERDTree Settings.
 "---------------------------
