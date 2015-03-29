@@ -9,7 +9,7 @@ PS1="[\u@\h \W]\\$ "
 cdls ()
 {
     \cd "$@" && ls
-	if [ -n $TMUX ]; then
+	if [ -n "$TMUX" ]; then
 		local current_path=`pwd`
 		local current_dir=`basename $current_path`
 		tmux rename-window $current_dir
