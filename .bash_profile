@@ -8,6 +8,7 @@ PS1="[\u@\h \W]\\$ "
 
 cdls ()
 {
+	pushd `pwd` >/dev/null
     \cd "$@" && ls
 	if [ -n "$TMUX" ]; then
 		local current_path=`pwd`
