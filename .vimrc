@@ -54,7 +54,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kana/vim-altr'
 
 " タグリスト
-NeoBundle "vim-scripts/taglist.vim"
+NeoBundle 'majutsushi/tagbar'
 
 " Unite
 NeoBundle 'Shougo/unite.vim'
@@ -308,12 +308,9 @@ xmap g/ <Plug>(easymotion-sn)
 omap g/ <Plug>(easymotion-tn)
 
 " ========================================
-" taglist.vim
+" tagbar.vim
 " ========================================
-let Tlist_Show_One_File = 1             " 現在表示中のファイルのみのタグしか表示しない
-let Tlist_Use_Right_Window = 1          " 右側にtag listのウインドうを表示する
-let Tlist_Exit_OnlyWindow = 1           " taglistのウインドウだけならVimを閉じる
-nnoremap <F4> :TlistToggle<CR>
+nnoremap <F4> :TagbarToggle<CR>
 
 " 全角文字をハイライト表示
 function! Zenkaku()
