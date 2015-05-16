@@ -96,6 +96,8 @@ set binary noeol              " 勝手にファイル末尾に改行をつけな
 
 set autochdir                 " 自動的にカレントディレクトリを移動する
 
+set incsearch                 " incremental search を有効
+
 " 下記ファイルは perl 扱い
 autocmd BufNewFile,BufRead *.psgi   set filetype=perl
 autocmd BufNewFile,BufRead *.t      set filetype=perl
@@ -383,5 +385,10 @@ if &term =~ "xterm"
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
     cnoremap <special> <Esc>[200~ <nop>
     cnoremap <special> <Esc>[201~ <nop>
+endif
+
+" 環境依存の.vimrc 設定を読み込む
+if filereadable(expand('~/.vimrc.local'))
+	source ~/.vimrc.local
 endif
 
