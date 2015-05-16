@@ -18,14 +18,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " プラグインの設定 開始 ---------------------
 
-" NERDTreeを設定
+" IDE的なファイラー
 NeoBundle 'scrooloose/nerdtree'
 
 " AutoCloseを設定
 NeoBundle 'Townk/vim-autoclose'
 
 " Ctags を自動生成
-NeoBundle 'szw/vim-tags'
+" NeoBundle 'szw/vim-tags'
 
 " 補完機能
 NeoBundle 'Shougo/neocomplcache'
@@ -50,14 +50,19 @@ NeoBundle 'Lokaltog/vim-easymotion'
 " Git Command
 NeoBundle 'tpope/vim-fugitive'
 
-" Open file as useful
-NeoBundle 'kana/vim-altr'
-
-" タグリスト
+" ファイル内のクラスや関数を表示
 NeoBundle 'majutsushi/tagbar'
 
 " Unite
-NeoBundle 'Shougo/unite.vim'
+" NeoBundle 'Shougo/unite.vim'
+
+" 異なるプロセスでヤンクを共有
+NeoBundle 'vim-scripts/yanktmp.vim'
+
+NeoBundle 'tpope/vim-surround'
+
+" ファイル検索
+NeoBundle "ctrlpvim/ctrlp.vim"
 
 " プラグインの設定 終了 ---------------------
 
@@ -67,7 +72,6 @@ call neobundle#end()
 filetype plugin indent on
 
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
 NeoBundleCheck
 
 "-------------------------
@@ -106,12 +110,13 @@ set backspace=indent,eol,start
 
 colorscheme elflord           "カラー設定
 
-" クリップボード設定
-vmap <C-y> :w !xsel -ib<CR><CR>
-
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
 
+" Ctrl + n で行数表示の切り替え
+nnoremap <silent> <C-n> :setlocal number!<CR>
+
+" ctags ファイルの在処
 set tags=$HOME/tags
 
 " ステータスバーを表示
@@ -144,9 +149,6 @@ let php_htmlInStrings = 1
 let php_noShortTags = 1
 let php_parent_error_close = 1
 
-" mysqlの場合
-let g:sql_type_default='mysql'
-
 " F3 で手軽に新規タブ
 nnoremap <F3> :tabe<CR>
 
@@ -163,6 +165,14 @@ nnoremap g# g#zz
 
 
 "---------------------------
+" Yank 共有
+"---------------------------
+
+map <silent> y :call YanktmpYank()<CR>
+map <silent> p :call YanktmpPaste_p()<CR>
+" map <silent> qP :call YanktmpPaste_P()<CR>
+
+"---------------------------
 " Start NERDTree Settings.
 "---------------------------
 
@@ -172,14 +182,11 @@ let NERDTreeShowHidden = 1
 " NERDTree でF2 ボタンで表示／非表示できるようにする
 nnoremap <f2> :NERDTreeToggle<CR>
 
-"" NERDTreeで最後に残ったウィンドウがNERDTREEのみのときはvimを閉じる
+" NERDTreeで最後に残ったウィンドウがNERDTREEのみのときはvimを閉じる
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " NERDTree の幅
 let g:NERDTreeWinSize=40
-
-" デフォルトでNERDTREE を展開する
-" autocmd VimEnter * execute 'NERDTree'
 
 "---------------------------
 " Start neocomplcache Settings.
@@ -204,21 +211,8 @@ let g:neocomplcache_dictionary_filetype_lists = {
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"  return neocomplcache#smart_close_popup() . "\<CR>"
-"endfunction
-" <TAB>: completion.
-" <TAB>でキー保管
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :  "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplcache#close_popup()
-"inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
 
 "---------------------------
 " Start QuickRun Settings.
@@ -237,17 +231,11 @@ nnoremap <f8> :QuickRun<CR>
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory = '~/.vim/bundle/vim-snippets/snippets'
 
-" 2013/01/19 19:20最新のREADMEのものを反映
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
 " SuperTab like snippets behavior.
-"imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
@@ -311,6 +299,11 @@ omap g/ <Plug>(easymotion-tn)
 " tagbar.vim
 " ========================================
 nnoremap <F4> :TagbarToggle<CR>
+
+" ctrlp
+set wildignore+=*.swf,*.xml,*.txt
+let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
+let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
 
 " 全角文字をハイライト表示
 function! Zenkaku()
