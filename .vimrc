@@ -57,7 +57,7 @@ NeoBundle 'majutsushi/tagbar'
 " NeoBundle 'Shougo/unite.vim'
 
 " 異なるプロセスでヤンクを共有
-NeoBundle 'vim-scripts/yanktmp.vim'
+" NeoBundle 'vim-scripts/yanktmp.vim'
 
 NeoBundle 'tpope/vim-surround'
 
@@ -170,8 +170,8 @@ nnoremap g# g#zz
 " Yank 共有
 "---------------------------
 
-map <silent> y :call YanktmpYank()<CR>
-map <silent> p :call YanktmpPaste_p()<CR>
+" map <silent> y :call YanktmpYank()<CR>
+" map <silent> p :call YanktmpPaste_p()<CR>
 " map <silent> qP :call YanktmpPaste_P()<CR>
 
 "---------------------------
