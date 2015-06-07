@@ -4,6 +4,7 @@
 if v:version < 703
 	echomsg "Vim のバージョンが7.3未満です。"
 endif
+
 "---------------------------
 " Start Neobundle Settings.
 "---------------------------
@@ -54,7 +55,10 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'majutsushi/tagbar'
 
 " Unite
-" NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite.vim'
+
+" vimproc
+NeoBundle 'Shougo/vimproc'
 
 " 異なるプロセスでヤンクを共有
 " NeoBundle 'vim-scripts/yanktmp.vim'
@@ -98,13 +102,7 @@ set autochdir                 " 自動的にカレントディレクトリを移
 
 set incsearch                 " incremental search を有効
 
-" 下記ファイルは perl 扱い
-autocmd BufNewFile,BufRead *.psgi   set filetype=perl
-autocmd BufNewFile,BufRead *.t      set filetype=perl
-
 " 下記ファイルは新規作成時にテンプレを開く
-autocmd BufNewFile *.pl  0r $HOME/.vim/template/perl-script.txt
-autocmd BufNewFile *.t   0r $HOME/.vim/template/perl-test.txt
 autocmd BufNewFile *.php 0r $HOME/.vim/template/php-script.txt
 
 " BackSpaceを有効にする
@@ -158,7 +156,7 @@ nnoremap <F3> :tabe<CR>
 noremap <CR> i<CR><ESC>
 
 " 検索結果を画面中央に
-"nnoremap n nzz
+nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
@@ -270,15 +268,10 @@ let g:EasyMotion_leader_key = '<Space>'
 nmap s <Plug>(easymotion-s2)
 xmap s <Plug>(easymotion-s2)
 omap z <Plug>(easymotion-s2)
-" Of course, you can map to any key you want such as `<Space>`
-" map <Space>(easymotion-s2)
 
 " Turn on case sensitive feature
 let g:EasyMotion_smartcase = 1
 
-" =======================================
-" Line Motions
-" =======================================
 " `JK` Motions: Extend line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
@@ -286,12 +279,11 @@ map <Leader>k <Plug>(easymotion-k)
 " keep cursor column with `JK` motions
 let g:EasyMotion_startofline = 0
 
-  " =======================================
- " General Configuration
-" =======================================
-let g:EasyMotion_keys = ';HKLYUIOPNM,QWERTASDGZXCVBJF'
+let g:EasyMotion_keys = 'ASDFJKL;QWERUIOP'
+
 " Show target key with upper case to improve readability
 let g:EasyMotion_use_upper = 1
+
 " Jump to first match with enter
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
@@ -314,11 +306,39 @@ omap g/ <Plug>(easymotion-tn)
 " ========================================
 nnoremap <F4> :TagbarToggle<CR>
 
+" ========================================
 " ctrlp
+" ========================================
 set wildignore+=*.swf,*.xml,*.txt
 let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
 let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
 
+" ========================================
+" Unite.vim
+" ========================================
+" insert modeで開始
+let g:unite_enable_start_insert = 1
+
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" grep検索
+nnoremap <silent> ,g  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
+
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+" ========================================
+" Functional settings
+" ========================================
 " 全角文字をハイライト表示
 function! Zenkaku()
     highlight Zenkaku cterm=reverse ctermfg=white gui=reverse guifg=white
@@ -336,51 +356,6 @@ if has('syntax')
 	augroup END
     call Zenkaku()
 endif
-
-
-"
-" .pm ファイルのテンプレ設定
-"
-function! s:pm_template()
-    let path = substitute(expand('%'), '.*lib/', '', 'g')
-    let path = substitute(path, '[\\/]', '::', 'g')
-    let path = substitute(path, '\.pm$', '', 'g')
-
-    call append(0, 'package ' . path . ';')
-    call append(1, 'use strict;')
-    call append(2, 'use warnings;')
-    call append(3, 'use utf8;')
-    call append(4, '')
-    call append(5, '')
-    call append(6, '')
-    call append(7, '1;')
-    call cursor(6, 0)
-    " echomsg path
-endfunction
-autocmd BufNewFile *.pm call s:pm_template()
-
-" パッケージ名のエラーチェック
-function! s:get_package_name()
-    let mx = '^\s*package\s\+\([^ ;]\+\)'
-    for line in getline(1, 5)
-        if line =~ mx
-            return substitute(matchstr(line, mx), mx, '\1', '')
-        endif
-    endfor
-    return ""
-endfunction
-
-function! s:check_package_name()
-    let path = substitute(expand('%:p'), '\\', '/', 'g')
-    let name = substitute(s:get_package_name(), '::', '/', 'g') . '.pm'
-    if path[-len(name):] != name
-        echohl WarningMsg
-        echomsg "ぱっけーじめいと、ほぞんされているぱすが、ちがうきがします！"
-        echomsg "ちゃんとなおしてください＞＜"
-        echohl None
-    endif
-endfunction
-au! BufWritePost *.pm call s:check_package_name()
 
 " auto paste
 if &term =~ "xterm"
