@@ -68,6 +68,11 @@ NeoBundle 'tpope/vim-surround'
 " ファイル検索
 NeoBundle "ctrlpvim/ctrlp.vim"
 
+Neobundle "pangloss/vim-javasript"
+Neobundle "othree/html5.vim"
+"jshint
+"
+
 " プラグインの設定 終了 ---------------------
 
 call neobundle#end()
