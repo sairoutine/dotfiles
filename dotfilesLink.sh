@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# vim7.4のインストール
+# tmuxのインストール
+# agのインストール
+
 ln -snf ~/dotfiles/.vimrc ~/.vimrc
 ln -snf ~/dotfiles/.vim ~/.vim
 ln -snf ~/dotfiles/.bash_profile ~/.bash_profile
