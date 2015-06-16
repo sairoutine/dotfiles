@@ -25,6 +25,32 @@ alias tma="tmux attach -t myproject1"
 alias tml="tmux list-sessions"
 export TERM=xterm-256color
 
+peco-branch()
+{
+    local selected_branch_name="$(git branch | peco | tr -d ' ')"
+
+	if [ -n "$selected_branch_name" ]; then
+		git checkout ${selected_branch_name}
+	fi
+}
+peco-kill()
+{
+    local kill_process_name="$(ps aux | peco | awk '{print $2}')"
+
+	if [ -n "$kill_process_name" ]; then
+		kill -9 ${kill_process_name}
+	fi
+}
+peco-deletebranch()
+{
+    local selected_branch_name="$(git branch | peco | tr -d ' ')"
+
+	if [ -n "$selected_branch_name" ]; then
+		git branch -D ${selected_branch_name}
+	fi
+}
+
+
 source ~/git-completion.bash
 
 if [ -f ~/.bashrc ]; then
