@@ -57,6 +57,9 @@ NeoBundle 'majutsushi/tagbar'
 " Unite
 NeoBundle 'Shougo/unite.vim'
 
+" Unite file_mru
+NeoBundle 'Shougo/neomru.vim'
+
 " vimproc
 NeoBundle 'Shougo/vimproc'
 
@@ -68,8 +71,8 @@ NeoBundle 'tpope/vim-surround'
 " ファイル検索
 NeoBundle "ctrlpvim/ctrlp.vim"
 
-Neobundle "pangloss/vim-javasript"
-Neobundle "othree/html5.vim"
+NeoBundle "pangloss/vim-javascript"
+NeoBundle 'othree/html5.vim'
 "jshint
 "
 
