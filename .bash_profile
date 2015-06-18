@@ -20,10 +20,17 @@ alias cd="cdls"
 
 alias e1='sudo tail -F -n20 /var/log/httpd/error_log'
 
-alias tmn="tmux new -s myproject1"
-alias tma="tmux attach -t myproject1"
-alias tml="tmux list-sessions"
 export TERM=xterm-256color
+
+tmux-attach()
+{
+	if [ $(( `ps aux | grep tmux | grep $USER | grep -v grep | wc -l` )) != 0 ]; then
+		tmux attach -t myproject
+	else
+		tmux new -s myproject
+	fi
+}
+bind -x '"\C-a": tmux-attach'
 
 peco-branch()
 {
