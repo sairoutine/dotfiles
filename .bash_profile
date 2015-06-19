@@ -30,7 +30,7 @@ tmux-attach()
 		tmux new -s myproject
 	fi
 }
-bind -x '"\C-a\C-a": tmux-attach'
+bind -x '"\C-f": tmux-attach'
 
 peco-branch()
 {
