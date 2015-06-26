@@ -1,13 +1,14 @@
-"---------------------------
+" ---------------------------
 " Vim version check
-" --------------------------
+" ---------------------------
 if v:version < 703
 	echomsg "Vim のバージョンが7.3未満です。"
 endif
 
-"---------------------------
+" ---------------------------
 " Start Neobundle Settings.
-"---------------------------
+" ---------------------------
+
 " bundleで管理するディレクトリを指定
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 
@@ -171,6 +172,12 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" 誤タイプ防止
+nnoremap Q <Nop>
+nnoremap q <Nop>
+
+" リーダーキーの設定
+let mapleader = '<Space>'
 
 "---------------------------
 "syntastic settings
@@ -331,11 +338,14 @@ let g:unite_enable_start_insert = 1
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
+" 最近開いたファイル一覧
+nnoremap <silent> <Space>m  :<C-u>Unite file_mru<CR>
+
 " grep検索
-nnoremap <silent> ,g  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
+nnoremap <silent> <Space>g  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
 
 " grep検索結果の再呼出
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> <Space>r  :<C-u>UniteResume search-buffer<CR>
 
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
