@@ -176,6 +176,9 @@ nnoremap g# g#zz
 nnoremap Q <Nop>
 nnoremap q <Nop>
 
+" Ctrl+D で閉じる
+nnoremap <C-d> :q<CR>
+
 " リーダーキーの設定
 let mapleader = '<Space>'
 
@@ -397,3 +400,14 @@ if filereadable(expand('~/.vimrc.local'))
 	source ~/.vimrc.local
 endif
 
+" 貼付け時にペーストバッファが上書きされないようにする
+
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
