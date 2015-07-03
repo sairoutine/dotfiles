@@ -8,12 +8,17 @@ PS1="[\u@\h \W]\\$ "
 
 cdls ()
 {
-	pushd $@ >/dev/null
-	ls
-	if [ -n "$TMUX" ]; then
-		local current_path=`pwd`
-		local current_dir=`basename $current_path`
-		tmux rename-window $current_dir
+	if [ -d $@ ]; then
+
+		pushd $@ >/dev/null
+		ls
+		if [ -n "$TMUX" ]; then
+			local current_path=`pwd`
+			local current_dir=`basename $current_path`
+			tmux rename-window $current_dir
+		fi
+	else
+		echo "ディレクトリが存在しません"
 	fi
 }
 alias cd="cdls"
