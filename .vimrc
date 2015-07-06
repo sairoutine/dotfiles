@@ -74,8 +74,7 @@ NeoBundle "ctrlpvim/ctrlp.vim"
 
 NeoBundle "pangloss/vim-javascript"
 NeoBundle 'othree/html5.vim'
-"jshint
-"
+
 
 " プラグインの設定 終了 ---------------------
 
@@ -125,8 +124,9 @@ nnoremap <C-]> g<C-]>
 " Ctrl + n で行数表示の切り替え
 nnoremap <silent> <C-n> :setlocal number!<CR>
 
-" ctags ファイルの在処
-set tags=$HOME/tags
+" 拡張子で読み込みctagsを変更
+au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
+au BufNewFile,BufRead *.js  set tags+=$HOME/js.tags
 
 " ステータスバーを表示
 set laststatus=2
@@ -193,6 +193,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checker = "jshint"
 
 "---------------------------
 " Yank 共有
