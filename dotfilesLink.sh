@@ -19,7 +19,7 @@ wget https://github.com/peco/peco/releases/download/v0.3.2/peco_linux_amd64.tar.
 # 展開
 tar -xzf peco_linux_amd64.tar.gz
 # $PATHのディレクトリに移動させる
-mv ./peco_linux_amd64/peco ~/usr/local/bin/
+mv ./peco_linux_amd64/peco /usr/local/bin/
 
 rm peco_linux_amd64.tar.gz
 rm -rf ./peco_linux_amd64
@@ -28,7 +28,7 @@ rm -rf ./peco_linux_amd64
 rpm -ivh http://swiftsignal.com/packages/centos/6/x86_64/the-silver-searcher-0.13.1-1.el6.x86_64.rpm
 
 # vim7.4
-yum install ncurses-devel
+yum install -y ncurses-devel
 
 wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
 tar xjf vim-7.4.tar.bz2
