@@ -19,7 +19,7 @@ if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
 
 	# vimprocのインストール
 	git clone https://github.com/Shougo/vimproc.vim.git ~/.vim/bundle/vimproc.vim
-	cd ~/.vim/bundle/vimproc.vim
+	cd ~/.vim/bundle/vimproc.vim/
 
 	# vimprocのmake
 	make
@@ -55,12 +55,12 @@ tar xjf vim-7.4.tar.bz2
 cd vim74
 make
 make install
+cd $DIR
 
 # あとしまつ
 rm vim-7.4.tar.bz2
 rm -rf vim74
 
-cd $DIR
 
 # 完了
 echo "done!"
