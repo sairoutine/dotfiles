@@ -28,7 +28,9 @@ rm -rf ./peco_linux_amd64
 rpm -ivh http://swiftsignal.com/packages/centos/6/x86_64/the-silver-searcher-0.13.1-1.el6.x86_64.rpm
 
 # vim7.4
+yum install -y gcc
 yum install -y ncurses-devel
+
 
 wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
 tar xjf vim-7.4.tar.bz2
