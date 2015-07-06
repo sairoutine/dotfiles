@@ -2,5 +2,4 @@
 .DS_Store
 
 .vim/.netrwhist
-.vim/bundle/NeoBundle.lock
-.vim/bundle/.neobundle/*
+.vim/bundle/
