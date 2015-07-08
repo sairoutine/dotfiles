@@ -75,6 +75,7 @@ NeoBundle "ctrlpvim/ctrlp.vim"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle 'othree/html5.vim'
 
+NeoBundle 'terryma/vim-expand-region'
 
 " プラグインの設定 終了 ---------------------
 
@@ -357,6 +358,24 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+" vim-expand-region
+" テキストオブジェクト
+" 値に1が設定されていればマップを展開する
+map v <Plug>(expand_region_expand)
+map V <Plug>(expand_region_shrink)
+let g:expand_region_text_objects = {
+      \ 'iw'  :0,
+      \ 'iW'  :0,
+      \ 'i"'  :0,
+      \ 'i''' :0,
+      \ 'i]'  :1,
+      \ 'ib'  :1,
+      \ 'iB'  :1,
+      \ 'ip'  :1,
+      \ }
+
+
 
 " ========================================
 " Functional settings
