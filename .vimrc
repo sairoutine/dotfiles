@@ -77,6 +77,9 @@ NeoBundle 'othree/html5.vim'
 
 NeoBundle 'terryma/vim-expand-region'
 
+" auto paste
+NeoBundle 'ConradIrwin/vim-bracketed-paste'
+
 " プラグインの設定 終了 ---------------------
 
 call neobundle#end()
@@ -110,9 +113,6 @@ set binary noeol              " 勝手にファイル末尾に改行をつけな
 set autochdir                 " 自動的にカレントディレクトリを移動する
 
 set incsearch                 " incremental search を有効
-
-" 下記ファイルは新規作成時にテンプレを開く
-autocmd BufNewFile *.php 0r $HOME/.vim/template/php-script.txt
 
 " BackSpaceを有効にする
 set backspace=indent,eol,start
@@ -397,23 +397,6 @@ if has('syntax')
 		autocmd VimEnter,WinEnter * match Zenkaku /\s\+$/
 	augroup END
     call Zenkaku()
-endif
-
-" auto paste
-if &term =~ "xterm"
-    let &t_ti .= "\e[?2004h"
-    let &t_te .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
-
-    function XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
-
-    noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-    cnoremap <special> <Esc>[200~ <nop>
-    cnoremap <special> <Esc>[201~ <nop>
 endif
 
 " 環境依存の.vimrc 設定を読み込む
