@@ -8,34 +8,17 @@ endif
 " ---------------------------
 " Start Neobundle Settings.
 " ---------------------------
-
-" bundleで管理するディレクトリを指定
 set runtimepath+=~/.vim/bundle/neobundle.vim/
-
-" Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
-
-" neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" プラグインの設定 開始 ---------------------
-
-" IDE的なファイラー
+" ---------------------------
+" Start Plugin Loading.
+" ---------------------------
 NeoBundle 'scrooloose/nerdtree'
-
-" AutoCloseを設定
 NeoBundle 'Townk/vim-autoclose'
-
-" Ctags を自動生成
-" NeoBundle 'szw/vim-tags'
-
-" 補完機能
 NeoBundle 'Shougo/neocomplcache'
-
-" QuickRun
 NeoBundle 'thinca/vim-quickrun'
-
-" syntax check
 NeoBundle 'scrooloose/syntastic'
 
 " 関数補完
@@ -43,79 +26,45 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'honza/vim-snippets'
 
-" ステータスバーの設定
 NeoBundle 'itchyny/lightline.vim'
-
-" Vim Easymotion
 NeoBundle 'Lokaltog/vim-easymotion'
-
-" Git Command
 NeoBundle 'tpope/vim-fugitive'
-
-" ファイル内のクラスや関数を表示
-NeoBundle 'majutsushi/tagbar'
-
-" Unite
 NeoBundle 'Shougo/unite.vim'
-
-" Unite file_mru
 NeoBundle 'Shougo/neomru.vim'
-
-" vimproc
 NeoBundle 'Shougo/vimproc'
-
-" 異なるプロセスでヤンクを共有
-" NeoBundle 'vim-scripts/yanktmp.vim'
-
 NeoBundle 'tpope/vim-surround'
-
-" ファイル検索
-NeoBundle "ctrlpvim/ctrlp.vim"
-
 NeoBundle "pangloss/vim-javascript"
 NeoBundle 'othree/html5.vim'
-
 NeoBundle 'terryma/vim-expand-region'
-
-" auto paste
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
-" プラグインの設定 終了 ---------------------
-
+NeoBundle 'Shougo/unite-outline'
+" ---------------------------
+" End Plugin Loading.
+" ---------------------------
 call neobundle#end()
-
-" Required:
 filetype plugin indent on
-
-" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 NeoBundleCheck
-
-"-------------------------
+"----------------------------
 " Vim Basic Settings.
-"-------------------------
-
-syntax on                     " 構文ハイライト表示
-set number                    " 行番号表示
-set tabstop=4                 " tab幅4
-set shiftwidth=4              " シフト幅4
+"----------------------------
+syntax on                      " 構文ハイライト表示
+set number                     " 行番号表示
+set tabstop=4                  " tab幅4
+set shiftwidth=4               " シフト幅4
 "set expandtab                 " タブの代わりにスペースを挿入
-
-set showmatch                 " 対応する閉じ括弧を表示
-
-set cindent                   " Cスタイルのインデント
-
-set mouse=a                   " マウス機能
-
-set noswapfile                " swpファイルを作らない
-
-set binary noeol              " 勝手にファイル末尾に改行をつけない
-
-set autochdir                 " 自動的にカレントディレクトリを移動する
-
-set incsearch                 " incremental search を有効
-
-" BackSpaceを有効にする
-set backspace=indent,eol,start
+set showmatch                  " 対応する閉じ括弧を表示
+set cindent                    " Cスタイルのインデント
+set mouse=a                    " マウス機能
+set noswapfile                 " swpファイルを作らない
+set binary noeol               " 勝手にファイル末尾に改行をつけない
+set autochdir                  " 自動的にカレントディレクトリを移動する
+set incsearch                  " incremental search を有効
+set backspace=indent,eol,start " BackSpaceを有効にする
+set laststatus=2               " ステータスバーを表示
+set hlsearch                   " 検索語を強調表示
+set ignorecase                 " 検索時に大文字・小文字を区別しない
+set smartcase                  " ただし、検索後に大文字小文字が混在しているときは区別する
 
 colorscheme elflord           "カラー設定
 
@@ -128,19 +77,6 @@ nnoremap <silent> <C-n> :setlocal number!<CR>
 " 拡張子で読み込みctagsを変更
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
 au BufNewFile,BufRead *.js  set tags+=$HOME/js.tags
-
-" ステータスバーを表示
-set laststatus=2
-
-" 検索語を強調表示
-set hlsearch
-
-" 検索時に大文字・小文字を区別しない
-set ignorecase
-
-" ただし、検索後に大文字小文字が
-" 混在しているときは区別する
-set smartcase
 
 " Dynamic SQL completionの無効
 let g:omni_sql_no_default_maps = 1
@@ -194,15 +130,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"let g:syntastic_javascript_checker = "jshint"
-
-"---------------------------
-" Yank 共有
-"---------------------------
-
-" map <silent> y :call YanktmpYank()<CR>
-" map <silent> p :call YanktmpPaste_p()<CR>
-" map <silent> qP :call YanktmpPaste_P()<CR>
 
 "---------------------------
 " Start NERDTree Settings.
@@ -322,9 +249,10 @@ xmap g/ <Plug>(easymotion-sn)
 omap g/ <Plug>(easymotion-tn)
 
 " ========================================
-" tagbar.vim
+" unite-outline
 " ========================================
-nnoremap <F4> :TagbarToggle<CR>
+let g:unite_split_rule = 'botright'
+noremap <F4> <ESC>:Unite -vertical -winwidth=40 outline<Return>
 
 " ========================================
 " ctrlp
