@@ -67,6 +67,7 @@ set ignorecase                 " 検索時に大文字・小文字を区別し�
 set smartcase                  " ただし、検索後に大文字小文字が混在しているときは区別する
 
 " 行を強調表示
+set cursorcolumn
 set cursorline
 
 colorscheme elflord           "カラー設定
