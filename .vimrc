@@ -67,8 +67,10 @@ set ignorecase                 " 検索時に大文字・小文字を区別し�
 set smartcase                  " ただし、検索後に大文字小文字が混在しているときは区別する
 
 " 行を強調表示
-set cursorcolumn
-set cursorline
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[1 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[1 q"
 
 colorscheme elflord           "カラー設定
 
