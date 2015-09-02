@@ -117,6 +117,9 @@ set incsearch                 " incremental search を有効
 " BackSpaceを有効にする
 set backspace=indent,eol,start
 
+" 行を強調表示
+set cursorline
+
 colorscheme elflord           "カラー設定
 
 " tagsジャンプの時に複数ある時は一覧表示
