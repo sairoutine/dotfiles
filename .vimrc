@@ -116,6 +116,9 @@ nnoremap q <Nop>
 " Ctrl+D で閉じる
 nnoremap <C-d> :q<CR>
 
+" insertモードから抜ける
+inoremap <silent> jj <ESC>
+
 " リーダーキーの設定
 let mapleader = '<Space>'
 
