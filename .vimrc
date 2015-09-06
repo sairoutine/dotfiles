@@ -97,9 +97,7 @@ let php_parent_error_close = 1
 
 " F3 で手軽に新規タブ
 nnoremap <F3> :tabe<CR>
-
-" ノーマルモードでも改行できる
-noremap <CR> i<CR><ESC>
+inoremap <F3> <ESC>:tabe<CR>
 
 " 検索結果を画面中央に
 nnoremap n nzz
@@ -117,7 +115,7 @@ nnoremap q <Nop>
 nnoremap <C-d> :q<CR>
 
 " insertモードから抜ける
-inoremap <silent> jj <ESC>
+inoremap <silent> <C-d> <ESC>
 
 " リーダーキーの設定
 let mapleader = '<Space>'
