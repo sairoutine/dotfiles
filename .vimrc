@@ -39,6 +39,12 @@ NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
 NeoBundle 'Shougo/unite-outline'
+
+
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'thinca/vim-textobj-comment'
+NeoBundle 'saihoooooooo/vim-textobj-space'
 " ---------------------------
 " End Plugin Loading.
 " ---------------------------
@@ -303,6 +309,9 @@ let g:expand_region_text_objects = {
       \ 'ib'  :0,
       \ 'iB'  :0,
       \ 'ip'  :1,
+      \ 'al'  :1,
+      \ 'ac'  :1,
+      \ 'aS'  :1,
       \ }
 
 
