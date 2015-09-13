@@ -45,6 +45,8 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'thinca/vim-textobj-comment'
 NeoBundle 'saihoooooooo/vim-textobj-space'
+
+NeoBundle 'elixir-lang/vim-elixir'
 " ---------------------------
 " End Plugin Loading.
 " ---------------------------
