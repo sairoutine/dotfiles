@@ -27,6 +27,8 @@ alias e1='sudo tail -F -n20 /var/log/httpd/error_log'
 
 export TERM=xterm-256color
 
+if [[ $TMUX ]]; then source ~/dotfiles/tmux-git.sh; fi
+
 tmux-attach()
 {
 	if [ $(( `ps aux | grep tmux | grep $USER | grep -v grep | wc -l` )) != 0 ]; then
