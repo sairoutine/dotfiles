@@ -160,25 +160,23 @@ let g:NERDTreeWinSize=40
 " Start neocomplcache Settings.
 "---------------------------
 
-" Disable AutoComplPop.
+" AutoComplPopを無効化する設定です。
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
+" neocomplcacheを起動時に有効化する設定です。
 let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
+" こちらは_区切りの補完を有効化します。
+let g:neocomplcache_enable_underbar_completion = 1
+" シンタックスをキャッシュするときの最小文字長を3にしています。
 let g:neocomplcache_min_syntax_length = 3
+" neocomplcacheを自動的にロックするバッファ名のパターンを指定します。
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
     \ }
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
+" <C-h>や<BS>を押したときに確実にポップアップを削除します。
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 
