@@ -16,7 +16,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Start Plugin Loading.
 " ---------------------------
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Townk/vim-autoclose'
+"NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/syntastic'
