@@ -47,6 +47,8 @@ NeoBundle 'thinca/vim-textobj-comment'
 NeoBundle 'saihoooooooo/vim-textobj-space'
 
 NeoBundle 'elixir-lang/vim-elixir'
+
+NeoBundle 'kana/vim-tabpagecd'
 " ---------------------------
 " End Plugin Loading.
 " ---------------------------
@@ -127,6 +129,10 @@ inoremap <silent> <C-d> <ESC>
 
 " リーダーキーの設定
 let mapleader = '<Space>'
+
+" タブキーでタブの移動
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
 
 "---------------------------
 "syntastic settings
@@ -341,3 +347,4 @@ inoremap  <Up>     <nop>
 inoremap  <Down>   <nop>
 inoremap  <Left>   <nop>
 inoremap  <Right>  <nop>
+
