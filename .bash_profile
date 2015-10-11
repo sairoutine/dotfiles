@@ -84,6 +84,8 @@ peco-select-history() {
 }
 bind -x '"\C-r": peco-select-history'
 
+# SSH Forward
+chmod -R 777 $(dirname $SSH_AUTH_SOCK)
 
 if [ -f ~/.bashrc ]; then
        . ~/.bashrc
