@@ -85,10 +85,19 @@ peco-select-history() {
 bind -x '"\C-r": peco-select-history'
 
 # SSH Forward
-if [ -n "$SSH_AUTH_SOCK" ]
-then
-	chmod -R 777 $(dirname $SSH_AUTH_SOCK)
+agent="$HOME/.ssh/agent"
+if [ -S "$SSH_AUTH_SOCK" ]; then
+    case $SSH_AUTH_SOCK in
+    /tmp/*/agent.[0-9]*)
+        ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
+		chmod -R 777 $agent
+    esac
+elif [ -S $agent ]; then
+    export SSH_AUTH_SOCK=$agent
+else
+    echo "no ssh-agent"
 fi
+
 
 if [ -f ~/.bashrc ]; then
        . ~/.bashrc
