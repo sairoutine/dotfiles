@@ -13,6 +13,19 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " ---------------------------
+" Start Encoding Settings
+" ---------------------------
+if $LOGNAME == 'game'
+	augroup filetypedetect
+	  au BufRead *.pm   :e ++enc=euc-jp
+	  au BufRead *.pl   :e ++enc=euc-jp
+	  au BufRead *.t    :e ++enc=euc-jp
+	  au BufRead *.md   :e ++enc=euc-jp
+	  au BufRead *.csv  :e ++enc=sjis
+	  au BufRead *.conf :e ++enc=euc-jp
+	augroup END
+endif
+" ---------------------------
 " Start Plugin Loading.
 " ---------------------------
 NeoBundle 'scrooloose/nerdtree'
@@ -87,6 +100,7 @@ nnoremap <silent> <C-n> :setlocal number!<CR>
 " 拡張子で読み込みctagsを変更
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
 au BufNewFile,BufRead *.js  set tags+=$HOME/js.tags
+au BufNewFile,BufRead *.pm  set tags+=$HOME/pl.tags
 
 " Dynamic SQL completionの無効
 let g:omni_sql_no_default_maps = 1
@@ -141,6 +155,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_enable_perl_checker = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
