@@ -37,7 +37,6 @@ tmux-attach()
 		tmux new -s myproject
 	fi
 }
-bind -x '"\C-f": tmux-attach'
 
 peco-branch()
 {
@@ -83,6 +82,7 @@ peco-select-history() {
     READLINE_POINT=${#l}
 }
 bind -x '"\C-r": peco-select-history'
+bind -x '"\C-f": tmux-attach'
 
 # SSH Forward
 agent="$HOME/.ssh/agent"
