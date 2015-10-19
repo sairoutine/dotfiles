@@ -3,3 +3,7 @@
 	name = sairoutine
 [push]
 	default = simple
+[pull]
+	rebase = true
+[merge]
+	ff = false
