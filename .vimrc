@@ -15,13 +15,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " ---------------------------
 " Start Encoding Settings
 " ---------------------------
-if $LOGNAME == 'game'
+if $LOGNAME == 'game2'
 	augroup filetypedetect
 	  au BufRead *.pm   :e ++enc=euc-jp
 	  au BufRead *.pl   :e ++enc=euc-jp
 	  au BufRead *.t    :e ++enc=euc-jp
 	  au BufRead *.md   :e ++enc=euc-jp
 	  au BufRead *.csv  :e ++enc=sjis
+	  au BufRead *.html :e ++enc=cp932
 	  au BufRead *.conf :e ++enc=euc-jp
 	augroup END
 endif

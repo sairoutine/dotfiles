@@ -7,3 +7,10 @@
 	rebase = true
 [merge]
 	ff = false
+	tool = vimdiff
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
