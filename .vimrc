@@ -13,20 +13,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " ---------------------------
-" Start Encoding Settings
-" ---------------------------
-if $LOGNAME == 'game2'
-	augroup filetypedetect
-	  au BufRead *.pm   :e ++enc=euc-jp
-	  au BufRead *.pl   :e ++enc=euc-jp
-	  au BufRead *.t    :e ++enc=euc-jp
-	  au BufRead *.md   :e ++enc=euc-jp
-	  au BufRead *.csv  :e ++enc=sjis
-	  au BufRead *.html :e ++enc=cp932
-	  au BufRead *.conf :e ++enc=euc-jp
-	augroup END
-endif
-" ---------------------------
 " Start Plugin Loading.
 " ---------------------------
 NeoBundle 'scrooloose/nerdtree'
@@ -81,7 +67,8 @@ set showmatch                  " 対応する閉じ括弧を表示
 set cindent                    " Cスタイルのインデント
 set mouse=a                    " マウス機能
 set noswapfile                 " swpファイルを作らない
-set binary noeol               " 勝手にファイル末尾に改行をつけない
+" fileencodings の指定が聞かなくなるので削除
+"set binary noeol               " 勝手にファイル末尾に改行をつけない
 set autochdir                  " 自動的にカレントディレクトリを移動する
 set incsearch                  " incremental search を有効
 set backspace=indent,eol,start " BackSpaceを有効にする
@@ -89,6 +76,7 @@ set laststatus=2               " ステータスバーを表示
 set hlsearch                   " 検索語を強調表示
 set ignorecase                 " 検索時に大文字・小文字を区別しない
 set smartcase                  " ただし、検索後に大文字小文字が混在しているときは区別する
+set fileencodings=utf-8,euc-jp,cp932,sjis
 
 colorscheme elflord           "カラー設定
 
