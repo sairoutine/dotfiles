@@ -38,7 +38,7 @@ tmux-attach()
 	fi
 }
 
-peco-branch()
+pcb()
 {
     local selected_branch_name="$(git branch | peco | tr -d ' ')"
 
@@ -46,7 +46,7 @@ peco-branch()
 		git checkout ${selected_branch_name}
 	fi
 }
-peco-kill()
+pck()
 {
     local kill_process_name="$(ps aux | peco | awk '{print $2}')"
 
@@ -54,7 +54,7 @@ peco-kill()
 		kill -9 ${kill_process_name}
 	fi
 }
-peco-deletebranch()
+pcd()
 {
     local selected_branch_name="$(git branch | peco | tr -d ' ')"
 
