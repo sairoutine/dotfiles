@@ -33,8 +33,13 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'tpope/vim-surround'
-NeoBundle "pangloss/vim-javascript"
-NeoBundle 'othree/html5.vim'
+NeoBundleLazy "pangloss/vim-javascript",{
+                          \"autoload" : {"filetypes" :["javascript"]}
+                          \}
+NeoBundleLazy 'othree/html5.vim',{
+                          \"autoload" : {"filetypes" :["html"]}
+                          \}
+
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
@@ -46,7 +51,9 @@ NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'thinca/vim-textobj-comment'
 NeoBundle 'saihoooooooo/vim-textobj-space'
 
-NeoBundle 'elixir-lang/vim-elixir'
+NeoBundleLazy 'elixir-lang/vim-elixir',{
+                          \"autoload" : {"filetypes" :["elixir"]}
+                          \}
 
 NeoBundle 'kana/vim-tabpagecd'
 " ---------------------------
@@ -76,6 +83,10 @@ set laststatus=2               " ステータスバーを表示
 set hlsearch                   " 検索語を強調表示
 set ignorecase                 " 検索時に大文字・小文字を区別しない
 set smartcase                  " ただし、検索後に大文字小文字が混在しているときは区別する
+set confirm                    " 保存されてないファイルは終了前に保存確認
+set hidden                     " 保存されていないファイルがあっても別のファイルを開ける
+set whichwrap=b,s,h,l,<,>,[,]  " 行末でカーソル移動が止まらないようにする
+set scrolloff=3                " 3行確保
 set fileencodings=utf-8,euc-jp,cp932,sjis
 
 colorscheme elflord           "カラー設定
