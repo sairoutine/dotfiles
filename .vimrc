@@ -156,6 +156,9 @@ nnoremap <Up>   gk
 " 逆に普通の行単位で移動したい時のために逆の map も設定しておく
 nnoremap gj j
 nnoremap gk k
+
+" 新しいタブでタグジャンプ
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 "---------------------------
 "syntastic settings
 "---------------------------
