@@ -33,6 +33,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundleLazy "pangloss/vim-javascript",{
                           \"autoload" : {"filetypes" :["javascript"]}
                           \}
