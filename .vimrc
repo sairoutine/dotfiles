@@ -103,6 +103,8 @@ au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
 au BufNewFile,BufRead *.js  set tags+=$HOME/js.tags
 au BufNewFile,BufRead *.pm  set tags+=$HOME/pl.tags
 
+au BufNewFile,BufRead *.ejs set filetype=html
+
 " Dynamic SQL completionの無効
 let g:omni_sql_no_default_maps = 1
 
