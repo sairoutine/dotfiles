@@ -12,6 +12,8 @@ else
     echo "no ssh-agent"
 fi
 
+bindkey -e
+
 alias ls='ls --color=auto -aG'
 
 PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
