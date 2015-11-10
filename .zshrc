@@ -37,18 +37,15 @@ alias cd="cdls"
 
 export TERM=xterm-256color
 
-tmux-attach()
-{
-	if [ $(( `ps aux | grep tmux | grep $USER | grep -v grep | wc -l` )) != 0 ]; then
-		tmux attach -t myproject
-	else
-		tmux new -s myproject
-	fi
+function tmux-attach() {
+    # Launching tmux inside a zle widget is not easy
+    # Hence, We delegate the work to the parent zsh
+    BUFFER=" { tmux list-sessions >& /dev/null && tmux attach } || tmux new -s myproject"
+    zle accept-line
 }
-
-#zle -N tmux-attach
-#bindkey '^f' tmux-attach
-tmux-attach
+zle -N tmux-attach
+bindkey '^f' tmux-attach
+#tmux-attach
 
 pecob()
 {
