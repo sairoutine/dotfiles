@@ -44,6 +44,7 @@ NeoBundleLazy 'othree/html5.vim',{
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
+NeoBundle 'othree/eregex.vim'
 NeoBundle 'Shougo/unite-outline'
 
 
@@ -321,6 +322,7 @@ let g:expand_region_text_objects = {
       \ 'a]'  :1,
       \ 'a)'  :1,
       \ 'a>'  :1,
+      \ 'a<'  :1,
       \ 'ib'  :0,
       \ 'iB'  :0,
       \ 'ip'  :1,
