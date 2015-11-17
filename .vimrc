@@ -35,11 +35,11 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundleLazy "pangloss/vim-javascript",{
-                          \"autoload" : {"filetypes" :["javascript"]}
-                          \}
+	\"autoload" : {"filetypes" :["javascript"]}
+	\}
 NeoBundleLazy 'othree/html5.vim',{
-                          \"autoload" : {"filetypes" :["html"]}
-                          \}
+	\"autoload" : {"filetypes" :["html"]}
+	\}
 
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
@@ -54,8 +54,8 @@ NeoBundle 'thinca/vim-textobj-comment'
 NeoBundle 'saihoooooooo/vim-textobj-space'
 
 NeoBundleLazy 'elixir-lang/vim-elixir',{
-                          \"autoload" : {"filetypes" :["elixir"]}
-                          \}
+	\"autoload" : {"filetypes" :["elixir"]}
+	\}
 
 NeoBundle 'kana/vim-tabpagecd'
 " ---------------------------
@@ -171,7 +171,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'passive_filetypes': ['perl'] }
+	\ 'passive_filetypes': ['perl'] }
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_always_populate_loc_list = 1
@@ -215,8 +215,8 @@ let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
+	\ 'default' : ''
+	\ }
 " <C-h>や<BS>を押したときに確実にポップアップを削除します。
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
@@ -248,7 +248,7 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 
 " For snippet_complete marker.
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+	set conceallevel=2 concealcursor=i
 endif
 
 " =======================================
@@ -304,9 +304,9 @@ nnoremap <silent> <Space>r  :<C-u>UniteResume search-buffer<CR>
 
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
+	let g:unite_source_grep_command = 'ag'
+	let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+	let g:unite_source_grep_recursive_opt = ''
 endif
 
 " vim-expand-region
@@ -315,21 +315,21 @@ endif
 map v <Plug>(expand_region_expand)
 map V <Plug>(expand_region_shrink)
 let g:expand_region_text_objects = {
-      \ 'iw'  :0,
-      \ 'iW'  :0,
-      \ 'a"'  :1,
-      \ 'a''' :1,
-      \ 'a]'  :1,
-      \ 'a)'  :1,
-      \ 'a>'  :1,
-      \ 'a<'  :1,
-      \ 'ib'  :0,
-      \ 'iB'  :0,
-      \ 'ip'  :1,
-      \ 'al'  :1,
-      \ 'ac'  :1,
-      \ 'aS'  :1,
-      \ }
+	\ 'iw'  :0,
+	\ 'iW'  :0,
+	\ 'a"'  :1,
+	\ 'a''' :1,
+	\ 'a]'  :1,
+	\ 'a)'  :1,
+	\ 'a>'  :1,
+	\ 'a<'  :1,
+	\ 'ib'  :0,
+	\ 'iB'  :0,
+	\ 'ip'  :1,
+	\ 'al'  :1,
+	\ 'ac'  :1,
+	\ 'aS'  :1,
+	\ }
 
 
 
@@ -338,36 +338,36 @@ let g:expand_region_text_objects = {
 " ========================================
 " 全角文字をハイライト表示
 function! Zenkaku()
-    highlight Zenkaku cterm=reverse ctermfg=white gui=reverse guifg=white
+	highlight Zenkaku cterm=reverse ctermfg=white gui=reverse guifg=white
 endfunction
 
 " 全角文字のハイライト表示
 if has('syntax')
-    augroup Zenkaku
-        autocmd!
-        autocmd ColorScheme       * call Zenkaku()
-        autocmd VimEnter,WinEnter * let w:m1 = matchadd("Zenkaku", '[　０１２３４５６７８９]')
-        autocmd VimEnter,WinEnter * let w:m2 = matchadd("Zenkaku", '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
-        autocmd VimEnter,WinEnter * let w:m3 = matchadd("Zenkaku", '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
-		autocmd VimEnter,WinEnter * match Zenkaku /\s\+$/
+	augroup Zenkaku
+		autocmd!
+		autocmd ColorScheme       * call Zenkaku()
+		autocmd VimEnter,WinEnter * let w:m1 = matchadd("Zenkaku", '[　０１２３４５６７８９]')
+		autocmd VimEnter,WinEnter * let w:m2 = matchadd("Zenkaku", '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
+		autocmd VimEnter,WinEnter * let w:m3 = matchadd("Zenkaku", '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
+		autocmd VimEnter,WinEnter * match Zenkaku /\s\+$/ 
+		autocmd VimEnter,WinEnter * match Zenkaku /^  \+/
 	augroup END
-    call Zenkaku()
-endif
-
-" 環境依存の.vimrc 設定を読み込む
-if filereadable(expand('~/.vimrc.local'))
-	source ~/.vimrc.local
+	call Zenkaku()
 endif
 
 " 貼付け時にペーストバッファが上書きされないようにする
 
 function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
+	let @" = s:restore_reg
+	return ''
 endfunction
 function! s:Repl()
-  let s:restore_reg = @"
-  return "p@=RestoreRegister()\<cr>"
+	let s:restore_reg = @"
+	return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
+" 環境依存の.vimrc 設定を読み込む
+if filereadable(expand('~/.vimrc.local'))
+	source ~/.vimrc.local
+endif
