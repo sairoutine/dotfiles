@@ -139,6 +139,9 @@ nnoremap g# g#zz
 nnoremap Q <Nop>
 nnoremap q <Nop>
 
+" Ctrl+I でタブ切り替えを廃止
+inoremap <C-i> <nop>
+
 " Ctrl+D で閉じる
 nnoremap <C-d> :q<CR>
 
