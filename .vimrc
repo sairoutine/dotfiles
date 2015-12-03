@@ -105,6 +105,7 @@ au BufNewFile,BufRead *.js  set tags+=$HOME/js.tags
 au BufNewFile,BufRead *.pm  set tags+=$HOME/pl.tags
 
 au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.t   set filetype=perl
 
 " Dynamic SQL completionの無効
 let g:omni_sql_no_default_maps = 1
@@ -139,9 +140,6 @@ nnoremap g# g#zz
 nnoremap Q <Nop>
 nnoremap q <Nop>
 
-" Ctrl+I でタブ切り替えを廃止
-inoremap <C-i> <nop>
-
 " Ctrl+D で閉じる
 nnoremap <C-d> :q<CR>
 
@@ -152,8 +150,7 @@ inoremap <silent> <C-d> <ESC>
 let mapleader = '<Space>'
 
 " タブキーでタブの移動
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
+nnoremap <S-Tab> gt
 
 " 表示行単位で上下移動するように
 nnoremap j gj
