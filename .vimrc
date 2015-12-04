@@ -149,8 +149,8 @@ inoremap <silent> <C-d> <ESC>
 " リーダーキーの設定
 let mapleader = '<Space>'
 
-" タブキーでタブの移動
-nnoremap <S-Tab> gt
+" F1キーでタブの移動
+nnoremap <F1> gt
 
 " 表示行単位で上下移動するように
 nnoremap j gj
