@@ -195,7 +195,7 @@ nnoremap <f2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " NERDTree の幅
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=30
 
 "---------------------------
 " Start neocomplcache Settings.
