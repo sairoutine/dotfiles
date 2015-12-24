@@ -58,6 +58,7 @@ NeoBundleLazy 'elixir-lang/vim-elixir',{
 	\}
 
 NeoBundle 'kana/vim-tabpagecd'
+NeoBundle 'kmnk/vim-unite-giti'
 " ---------------------------
 " End Plugin Loading.
 " ---------------------------
