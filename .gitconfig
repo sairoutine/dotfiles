@@ -44,6 +44,7 @@
 	d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
 	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 	delete-merged-branches-remote = !git branch -a --merged | grep -v master | grep remotes/origin| sed -e 's% *remotes/origin/%%' | xargs -I% git push origin :%
+	showpr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...master | grep 'Merge pull request #' | head -n 1; }; f"
 [include]
 	path = ~/.gitconfig.local
 [url "https://"]
