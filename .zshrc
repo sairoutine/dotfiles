@@ -14,7 +14,15 @@ fi
 
 bindkey -e
 
-alias ls='ls --color=auto -aG'
+case "${OSTYPE}" in
+darwin*)
+	export LSCOLORS=gxfxcxdxbxegedabagacad
+	alias ls="ls -aG"
+	;;
+linux*)
+	alias ls='ls --color=auto -aG'
+	;;
+esac
 
 PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 
