@@ -24,6 +24,9 @@ linux*)
 	;;
 esac
 
+alias g='git'
+
+
 PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 
 cdls ()

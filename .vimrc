@@ -294,6 +294,9 @@ let g:unite_enable_start_insert = 1
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
+" 最近開いたファイルの保存件数
+let g:unite_source_file_mru_limit = 500
+
 " 最近開いたファイル一覧
 nnoremap <silent> <Space>m  :<C-u>Unite file_mru<CR>
 
