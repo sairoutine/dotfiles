@@ -345,18 +345,23 @@ function! Zenkaku()
 	highlight Zenkaku cterm=reverse ctermfg=white gui=reverse guifg=white
 endfunction
 
-" 全角文字のハイライト表示
 if has('syntax')
+	" 全角文字のハイライト表示
 	augroup Zenkaku
 		autocmd!
 		autocmd ColorScheme       * call Zenkaku()
 		autocmd VimEnter,WinEnter * let w:m1 = matchadd("Zenkaku", '[　０１２３４５６７８９]')
 		autocmd VimEnter,WinEnter * let w:m2 = matchadd("Zenkaku", '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
 		autocmd VimEnter,WinEnter * let w:m3 = matchadd("Zenkaku", '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
-		autocmd VimEnter,WinEnter * match Zenkaku /\s\+$/ 
-		autocmd VimEnter,WinEnter * match Zenkaku /^  \+/
 	augroup END
 	call Zenkaku()
+
+	" 行頭行末のスペースをハイライト表示
+	augroup Space
+		autocmd!
+		autocmd VimEnter,WinEnter * match Zenkaku /\s\+$/
+		autocmd VimEnter,WinEnter * match Zenkaku /^  \+/
+	augroup END
 endif
 
 " 貼付け時にペーストバッファが上書きされないようにする
