@@ -59,6 +59,9 @@ NeoBundleLazy 'elixir-lang/vim-elixir',{
 
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'kmnk/vim-unite-giti'
+
+" * でカーソル移動しない
+NeoBundle 'haya14busa/vim-asterisk'
 " ---------------------------
 " End Plugin Loading.
 " ---------------------------
@@ -340,7 +343,13 @@ let g:expand_region_text_objects = {
 	\ 'aS'  :1,
 	\ }
 
-
+" vim-asterisk
+" * でカーソル移動しない
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
+let g:asterisk#keeppos = 1
 
 " ========================================
 " Functional settings
