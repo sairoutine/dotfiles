@@ -129,6 +129,10 @@ let php_parent_error_close = 1
 nnoremap <F3> :tabe<CR>
 inoremap <F3> <ESC>:tabe<CR>
 
+"タブ切り替え
+nnoremap <Tab>   gt
+nnoremap <S-Tab> gT
+
 " 検索結果を画面中央に
 nnoremap n nzz
 nnoremap N Nzz
@@ -179,6 +183,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['jsxhint']
 " <F7>でシンタックスチェック
 nnoremap <F7> :SyntasticCheck<CR>
 
