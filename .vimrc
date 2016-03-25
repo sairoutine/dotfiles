@@ -314,9 +314,9 @@ nnoremap <silent> <Space>g  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
 nnoremap <silent> <Space>r  :<C-u>UniteResume search-buffer<CR>
 
-" unite grep に ag(The Silver Searcher) を使う
-if executable('ag')
-	let g:unite_source_grep_command = 'ag'
+" unite grep に pt(The Platinum Searcher) を使う
+if executable('pt')
+	let g:unite_source_grep_command = 'pt'
 	let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
 	let g:unite_source_grep_recursive_opt = ''
 endif
