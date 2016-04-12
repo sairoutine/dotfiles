@@ -26,6 +26,8 @@ esac
 
 alias g='git'
 
+# macの背景色変更
+alias chbg='~/dotfiles/chbg'
 
 PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 
