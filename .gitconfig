@@ -21,7 +21,7 @@
 	quotepath = false
 [alias]
 	co = checkout
-	st = status --short --branch
+	st = status
 	br = branch
 	sh = show
 	so = remote show origin
