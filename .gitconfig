@@ -19,6 +19,8 @@
 [core]
 	editor = vim
 	quotepath = false
+	preloadindex = true
+	fscache = true
 [alias]
 	co = checkout
 	st = status
