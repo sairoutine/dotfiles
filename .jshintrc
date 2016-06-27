@@ -38,5 +38,6 @@
     "sub": true,
     "strict": true,
     "white": true,
-    "unused": false
+    "unused": false,
+    "esnext": true
 }
