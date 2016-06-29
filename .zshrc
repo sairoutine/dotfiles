@@ -111,8 +111,6 @@ compinit
 zstyle ':completion:*default' menu select=2
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# vcs_infoロード
-autoload -Uz vcs_info
 # PROMPT変数内で変数参照する
 setopt prompt_subst
 
