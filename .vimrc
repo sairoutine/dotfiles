@@ -172,6 +172,18 @@ nnoremap <Up>   gk
 nnoremap gj j
 nnoremap gk k
 
+" 分割したウィンドウを移動
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap sw <C-w>w
+
 " 新しいタブでタグジャンプ
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 "---------------------------
