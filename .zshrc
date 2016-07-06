@@ -227,6 +227,13 @@ compctl -V directories -K _bd bd
 # bd.zsh end
 
 
+function cdup() {
+   echo
+   cd ..
+   zle reset-prompt
+}
+zle -N cdup
+bindkey '^u' cdup
 
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
