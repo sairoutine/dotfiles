@@ -4,7 +4,6 @@
 if v:version < 703
 	echomsg "Vim のバージョンが7.3未満です。"
 endif
-
 " ---------------------------
 " Start Neobundle Settings.
 " ---------------------------
@@ -62,6 +61,8 @@ NeoBundle 'kmnk/vim-unite-giti'
 
 " * でカーソル移動しない
 NeoBundle 'haya14busa/vim-asterisk'
+" spaceを揃える
+NeoBundle 'junegunn/vim-easy-align'
 " ---------------------------
 " End Plugin Loading.
 " ---------------------------
@@ -361,6 +362,12 @@ map #  <Plug>(asterisk-z#)
 map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 let g:asterisk#keeppos = 1
+
+" ========================================
+" vim-easy-align
+" ========================================
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
 " ========================================
 " Functional settings
