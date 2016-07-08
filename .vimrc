@@ -135,10 +135,6 @@ let php_parent_error_close = 1
 nnoremap <F3> :tabe<CR>
 inoremap <F3> <ESC>:tabe<CR>
 
-"タブ切り替え
-nnoremap <Tab>   gt
-nnoremap <S-Tab> gT
-
 " 検索結果を画面中央に
 nnoremap n nzz
 nnoremap N Nzz
