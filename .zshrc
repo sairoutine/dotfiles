@@ -25,6 +25,8 @@ linux*)
 esac
 
 alias g='git'
+alias v='vim'
+alias vi='vim'
 
 # macの背景色変更
 alias chbg='~/dotfiles/chbg'
