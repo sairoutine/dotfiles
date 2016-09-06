@@ -49,6 +49,15 @@ zle -N tmux-attach
 bindkey '^f' tmux-attach
 #tmux-attach
 
+pecoa()
+{
+	local file="$(git status -s | egrep '^ +[MA]' | awk '{print$2}' | peco)"
+
+	if [ -n "$file" ]; then
+		git add ${file}
+	fi
+}
+
 pecob()
 {
     local selected_branch_name="$(git branch | peco | tr -d ' ')"
