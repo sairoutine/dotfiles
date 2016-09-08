@@ -142,7 +142,7 @@ precmd () {
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
-PROMPT='[%F{green}%n%f@%F{green}%U%m%u%f:%F{blue}%B%d%f%b]
+PROMPT='[%F{blue}%n%f@%F{green}%U%m%u%f:%F{red}%B%d%f%b]
 $ '
 
 export EDITOR=vim        # エディタをvimに設定
