@@ -13,4 +13,5 @@ ln -snf ~/dotfiles/.npmrc ~/.npmrc
 ln -snf ~/dotfiles/.jshintrc ~/.jshintrc
 ln -snf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -snf ~/dotfiles/.ssh/config ~/.ssh/config
+ln -snf ~/dotfiles/.gdbinit ~/.gdbinit
 chmod 0600 ~/.ssh/config
