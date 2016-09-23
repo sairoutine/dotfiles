@@ -76,10 +76,10 @@ pecok()
 }
 pecod()
 {
-    local selected_branch_name="$(git branch | peco | tr -d ' ')"
+	local file="$(git status -s | egrep '^ +[MA]' | awk '{print$2}' | peco)"
 
-	if [ -n "$selected_branch_name" ]; then
-		git branch -D ${selected_branch_name}
+	if [ -n "$file" ]; then
+		git diff ${file}
 	fi
 }
 cdr()
@@ -140,10 +140,12 @@ precmd () {
 }
 
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
+#RPROMPT="%1(v|%F{green}%1v%f|)[%F{red}%B%d%f%b]"
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
-PROMPT='[%F{blue}%n%f@%F{green}%U%m%u%f:%F{red}%B%d%f%b]
-$ '
+#PROMPT='$ '
+PROMPT='[%C] '
+
 
 export EDITOR=vim        # エディタをvimに設定
 export LANG=ja_JP.UTF-8  # 文字コードをUTF-8に設定
