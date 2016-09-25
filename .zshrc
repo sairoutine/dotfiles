@@ -251,6 +251,8 @@ function cdup() {
 zle -N cdup
 bindkey '^u' cdup
 
+# enhancd
+source ./dotfiles/enhancd/init.sh
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
