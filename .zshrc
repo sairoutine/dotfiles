@@ -66,14 +66,6 @@ pecob()
 		git checkout ${selected_branch_name}
 	fi
 }
-pecok()
-{
-    local kill_process_name="$(ps aux | peco | awk '{print $2}')"
-
-	if [ -n "$kill_process_name" ]; then
-		kill -9 ${kill_process_name}
-	fi
-}
 pecod()
 {
 	local file="$(git status -s | egrep '^ +[MA]' | awk '{print$2}' | peco)"
