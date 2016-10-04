@@ -30,6 +30,7 @@ alias vi='vim'
 
 # macの背景色変更
 alias chbg='~/dotfiles/chbg'
+alias imgcat='~/dotfiles/imgcat'
 
 PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 
