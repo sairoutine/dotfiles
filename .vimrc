@@ -114,7 +114,7 @@ autocmd WinLeave * setl nocursorline
 colorscheme CandyPaper
 hi LineNr ctermbg=0 ctermfg=7
 hi CursorLineNr ctermbg=9 ctermfg=0
-hi Comment ctermbg=0, ctermfg=3 # コメント行の
+hi Comment ctermbg=0, ctermfg=3
 
 "----------------------------
 " 
