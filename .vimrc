@@ -63,6 +63,9 @@ NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'haya14busa/vim-asterisk'
 " spaceを揃える
 NeoBundle 'junegunn/vim-easy-align'
+
+NeoBundle 'dfxyz/CandyPaper.vim'
+
 " ---------------------------
 " End Plugin Loading.
 " ---------------------------
@@ -96,7 +99,26 @@ set whichwrap=b,s,h,l,<,>,[,]  " 行末でカーソル移動が止まらない�
 set scrolloff=3                " 3行確保
 set fileencodings=utf-8,euc-jp,cp932,sjis
 
-colorscheme elflord           "カラー設定
+"----------------------------
+" Color
+"----------------------------
+"colorscheme elflord           "カラー設定
+
+"カーソルのある行をハイライト
+set cursorline
+"カーソルハイライトはカレントウィンドウのみ
+autocmd WinEnter * setl cursorline
+"カレントウィンドウから離れたらカーソルハイライトを消す
+autocmd WinLeave * setl nocursorline
+
+colorscheme CandyPaper
+hi LineNr ctermbg=0 ctermfg=7
+hi CursorLineNr ctermbg=9 ctermfg=0
+hi Comment ctermbg=0, ctermfg=3 # コメント行の
+
+"----------------------------
+" 
+"----------------------------
 
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
@@ -159,6 +181,8 @@ let mapleader = '<Space>'
 
 " F1キーでタブの移動
 nnoremap <F1> gt
+nnoremap gh gt
+nnoremap gl gT
 
 " 表示行単位で上下移動するように
 nnoremap j gj
