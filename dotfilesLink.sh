@@ -8,6 +8,7 @@ DIR=$(cd $(dirname $0); pwd)
 ln -snf ~/dotfiles/.vimrc ~/.vimrc
 ln -snf ~/dotfiles/.vim ~/.vim
 ln -snf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -snf ~/dotfiles/.gitignore ~/.gitignore
 ln -snf ~/dotfiles/.zshrc ~/.zshrc
 ln -snf ~/dotfiles/.npmrc ~/.npmrc
 ln -snf ~/dotfiles/.jshintrc ~/.jshintrc
