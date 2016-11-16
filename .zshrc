@@ -38,6 +38,11 @@ PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 function chpwd() { ls }
 
 
+function repo () {
+	cd `git rev-parse --show-toplevel`
+}
+
+
 export TERM=xterm-256color
 
 function tmux-attach() {
