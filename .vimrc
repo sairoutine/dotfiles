@@ -99,6 +99,20 @@ set whichwrap=b,s,h,l,<,>,[,]  " 行末でカーソル移動が止まらない�
 set scrolloff=3                " 3行確保
 set fileencodings=utf-8,euc-jp,cp932,sjis
 
+
+"----------------------------
+" Color
+"----------------------------
+map <Up> <Nop>
+map <Down> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
+map <BS> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <BS> <Nop>
 "----------------------------
 " Color
 "----------------------------
