@@ -459,6 +459,38 @@ function! ReadJSFile() abort
 endfunction
 autocmd FileType javascript nmap <C-g>  :call ReadJSFile()<CR>
 
+"""""""""""""""""""""""""""""""""""" translate markdown
+function! s:translate_markdown(lang) abort
+    if &filetype !=# 'markdown'
+        echoerr 'Not a Markdown buffer!'
+    endif
+
+    if !executable('translate-markdown')
+        echoerr '`translate-markdown` command is not found!'
+    endif
+
+    let start = getpos("'<")
+    let end = getpos("'>")
+    let saved = getpos('.')
+
+    call setpos('.', start)
+    normal! v
+    call setpos('.', end)
+
+    let save_reg_g = getreg('g')
+    let save_regtype_g = getregtype('g')
+    try
+        normal! "gy
+        let input = getreg('g')
+    finally
+        call setreg('g', save_reg_g, save_regtype_g)
+    endtry
+
+    let result = system('translate-markdown ' . a:lang, input)
+    echo result
+endfunction
+command! -nargs=0 -range=% TranslateMarkdown call <SID>translate_markdown('ja')<CR>
+autocmd FileType markdown noremap <C-o> :TranslateMarkdown<CR>
 
 
 
