@@ -151,6 +151,11 @@ au BufNewFile,BufRead *.t   set filetype=perl
 " JSONファイル編集時にダブルクオーテーションを表示する
 autocmd Filetype json setl conceallevel=0
 
+" markdownファイル編集時にダブルクオーテーションを表示する
+autocmd Filetype markdown setl conceallevel=0
+
+
+
 " Dynamic SQL completionの無効
 let g:omni_sql_no_default_maps = 1
 
