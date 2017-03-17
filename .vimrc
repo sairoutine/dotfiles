@@ -168,13 +168,6 @@ let g:sql_type_default='mysql'
 vnoremap < <gv
 vnoremap > >gv
 
-" PHP設定
-let php_sql_query = 1
-let php_baselib = 1
-let php_htmlInStrings = 1
-let php_noShortTags = 1
-let php_parent_error_close = 1
-
 " F3 で手軽に新規タブ
 nnoremap <F3> :tabe<CR>
 inoremap <F3> <ESC>:tabe<CR>
@@ -199,11 +192,6 @@ inoremap <silent> <C-d> <ESC>
 
 " リーダーキーの設定
 let mapleader = '<Space>'
-
-" F1キーでタブの移動
-nnoremap <F1> gt
-nnoremap gh gt
-nnoremap gl gT
 
 " 表示行単位で上下移動するように
 nnoremap j gj
