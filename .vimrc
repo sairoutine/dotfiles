@@ -66,6 +66,8 @@ NeoBundle 'junegunn/vim-easy-align'
 
 NeoBundle 'dfxyz/CandyPaper.vim'
 
+NeoBundle 'vim-scripts/gtags.vim'
+
 " ---------------------------
 " End Plugin Loading.
 " ---------------------------
@@ -224,8 +226,25 @@ nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 nnoremap sw <C-w>w
 
-" 新しいタブでタグジャンプ
+" 新しいタブでタグジャンプ(ctags)
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" 以下 gtags 設定
+" Ctrl + o で前へ
+
+" Ctrl-l このファイルの関数一覧
+" map <C-h> :Gtags -f %<CR>
+" Ctrl-j カーソル以下の定義元／定義先を探す
+
+au BufNewFile,BufRead *.cpp map <C-\> :GtagsCursor<CR>
+au BufNewFile,BufRead *.hpp map <C-\> :GtagsCursor<CR>
+au BufNewFile,BufRead *.h map <C-\> :GtagsCursor<CR>
+au BufNewFile,BufRead *.c map <C-\> :GtagsCursor<CR>
+" 検索結果の前へ次へ
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+" Ctrl-g ソースコードの grep
+" nmap <C-g> :Gtags -g 
+
 "---------------------------
 "syntastic settings
 "---------------------------
