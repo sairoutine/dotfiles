@@ -217,16 +217,20 @@ nnoremap sw <C-w>w
 " 新しいタブでタグジャンプ(ctags)
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " 現在のタブでタグジャンプ(ctags)
-map <C-\> :exec("tag ".expand("<cword>"))<CR>
+map \ :exec("tag ".expand("<cword>"))<CR>
 
 " 以下 gtags 設定
 " このファイルの関数一覧
 " map <C-h> :Gtags -f %<CR>
 " カーソル以下の定義元／定義先を探す
-au BufNewFile,BufRead *.cpp map <C-\> :GtagsCursor<CR>
-au BufNewFile,BufRead *.hpp map <C-\> :GtagsCursor<CR>
-au BufNewFile,BufRead *.h map <C-\> :GtagsCursor<CR>
-au BufNewFile,BufRead *.c map <C-\> :GtagsCursor<CR>
+au BufNewFile,BufRead *.cpp map \ :GtagsCursor<CR>
+au BufNewFile,BufRead *.hpp map \ :GtagsCursor<CR>
+au BufNewFile,BufRead *.h map \ :GtagsCursor<CR>
+au BufNewFile,BufRead *.c map \ :GtagsCursor<CR>
+" 前へ／次へ
+map m <C-i>
+map , <C-o>
+
 " 検索結果の前へ次へ
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
