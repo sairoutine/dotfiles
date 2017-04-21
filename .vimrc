@@ -39,6 +39,12 @@ NeoBundleLazy "pangloss/vim-javascript",{
 NeoBundleLazy 'othree/html5.vim',{
 	\"autoload" : {"filetypes" :["html"]}
 	\}
+NeoBundleLazy 'tyru/open-browser.vim',{
+	\"autoload" : {"filetypes" :["markdown"]}
+	\}
+NeoBundleLazy 'kannokanno/previm',{
+	\"autoload" : {"filetypes" :["markdown"]}
+	\}
 
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
@@ -306,6 +312,14 @@ set splitbelow
 
 " QuickRun でF8 ボタンで実行できるようにする
 nnoremap <f8> :QuickRun<CR>
+
+"---------------------------
+" Start Previm Settings.
+"---------------------------
+
+" previm
+nnoremap <f10> :PrevimOpen<CR>
+let g:previm_open_cmd = 'open -a "Google Chrome"'
 
 "---------------------------
 " NeoSnippet
