@@ -42,7 +42,6 @@ function repo () {
 	cd `git rev-parse --show-toplevel`
 }
 
-
 export TERM=xterm-256color
 
 function tmux-attach() {
@@ -248,6 +247,16 @@ function cdup() {
 }
 zle -N cdup
 bindkey '^u' cdup
+
+function func_fg() {
+	fg
+	zle reset-prompt  # プロンプトを再描画
+}
+zle -N func_fg
+bindkey '^i' func_fg
+
+
+
 
 # enhancd
 source ~/dotfiles/enhancd/init.sh
