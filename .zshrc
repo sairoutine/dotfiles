@@ -249,11 +249,12 @@ zle -N cdup
 bindkey '^u' cdup
 
 function func_fg() {
+	echo
 	fg
 	zle reset-prompt  # プロンプトを再描画
 }
 zle -N func_fg
-bindkey '^i' func_fg
+bindkey '^y' func_fg
 
 
 
