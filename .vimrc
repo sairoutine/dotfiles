@@ -145,8 +145,8 @@ hi Comment ctermbg=0, ctermfg=2
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
 
-" Ctrl + n で行数表示の切り替え
-nnoremap <silent> <C-n> :setlocal number!<CR>
+" Ctrl + q で行数表示の切り替え
+nnoremap <silent> <C-^> :setlocal number!<CR>
 
 " 拡張子で読み込みctagsを変更
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
