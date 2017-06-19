@@ -46,6 +46,15 @@ NeoBundleLazy 'kannokanno/previm',{
 	\"autoload" : {"filetypes" :["markdown"]}
 	\}
 
+NeoBundleLazy 'glsl.vim'
+augroup NeoBundleLazyForShader
+	autocmd!
+	autocmd BufNewFile,BufRead *.vs,*.fs,*.glsl
+		\ set filetype=glsl
+	autocmd FileType glsl NeoBundleSource
+		\ glsl.vim
+augroup END
+
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
