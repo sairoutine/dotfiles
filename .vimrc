@@ -376,14 +376,11 @@ let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 
 " ========================================
-" unite-outline
-" ========================================
-let g:unite_split_rule = 'botright'
-noremap <F4> <ESC>:Unite -vertical -winwidth=40 outline<Return>
-
-" ========================================
 " Unite.vim
 " ========================================
+
+let g:unite_split_rule = 'botright'
+
 " insert modeで開始
 let g:unite_enable_start_insert = 1
 
@@ -396,6 +393,9 @@ let g:unite_source_file_mru_limit = 500
 
 " 最近開いたファイル一覧
 nnoremap <silent> <Space>m  :<C-u>Unite file_mru<CR>
+
+" 関数一覧
+nnoremap <silent> <Space>f  :<C-u>Unite outline<CR>
 
 " grep検索
 nnoremap <silent> <Space>g  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
