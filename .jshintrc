@@ -39,5 +39,6 @@
     "strict": true,
     "white": true,
     "unused": false,
-    "esnext": true
+    "esnext": true,
+    "loopfunc": true
 }
