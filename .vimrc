@@ -154,7 +154,7 @@ hi Comment ctermbg=0, ctermfg=2
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
 
-" Ctrl + q で行数表示の切り替え
+" Ctrl + ^ で行数表示の切り替え
 nnoremap <silent> <C-^> :setlocal number!<CR>
 
 " 拡張子で読み込みctagsを変更
@@ -354,14 +354,14 @@ endif
 " =======================================
 let g:EasyMotion_leader_key = '<Space>'
 
-" s{char}{char}<CR>
-nmap s <Plug>(easymotion-s2)
-xmap s <Plug>(easymotion-s2)
+" f{char}{char}<CR>
+nmap f <Plug>(easymotion-s2)
+xmap f <Plug>(easymotion-s2)
 omap z <Plug>(easymotion-s2)
 
 " Word Jump
-nmap f <Plug>(easymotion-bd-w)
-xmap f <Plug>(easymotion-bd-w)
+nmap s <Plug>(easymotion-bd-w)
+xmap s <Plug>(easymotion-bd-w)
 
 " Turn on case sensitive feature
 let g:EasyMotion_smartcase = 1
