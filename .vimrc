@@ -230,8 +230,7 @@ nnoremap sH <C-w>H
 nnoremap sw <C-w>w
 
 " Ctrl + G で git status を開く
-nnoremap <silent> <C-g> :Gstatus<CR>
-
+nnoremap <silent> <C-g> :Gstatus<CR><C-w>T
 " 新しいタブでタグジャンプ(ctags)
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " 現在のタブでタグジャンプ(ctags)
