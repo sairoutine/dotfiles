@@ -547,7 +547,12 @@ endfunction
 command! -nargs=0 -range=% TranslateMarkdown call <SID>translate_markdown('ja')<CR>
 autocmd FileType markdown noremap <C-o> :TranslateMarkdown<CR>
 
+" ファイルを開いた時に前回のカーソル位置に移動
 
+augroup vimrcEx
+  au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
+  \ exe "normal g`\"" | endif
+augroup END
 
 
 " 環境依存の.vimrc 設定を読み込む
