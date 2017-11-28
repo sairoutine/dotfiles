@@ -25,6 +25,7 @@ linux*)
 esac
 
 alias g='git'
+alias gi='git'
 alias v='vim'
 alias vi='vim'
 
