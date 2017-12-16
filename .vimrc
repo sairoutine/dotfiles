@@ -110,6 +110,7 @@ set laststatus=2               " ステータスバーを表示
 set hlsearch                   " 検索語を強調表示
 set ignorecase                 " 検索時に大文字・小文字を区別しない
 set smartcase                  " ただし、検索後に大文字小文字が混在しているときは区別する
+set wrapscan                   " 検索時で最後まで行ったら最初に戻る
 set confirm                    " 保存されてないファイルは終了前に保存確認
 set hidden                     " 保存されていないファイルがあっても別のファイルを開ける
 set whichwrap=b,s,h,l,<,>,[,]  " 行末でカーソル移動が止まらないようにする
