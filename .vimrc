@@ -55,6 +55,8 @@ augroup NeoBundleLazyForShader
 		\ glsl.vim
 augroup END
 
+NeoBundle 'AndrewRadev/switch.vim'
+
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
