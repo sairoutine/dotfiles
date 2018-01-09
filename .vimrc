@@ -45,6 +45,8 @@ NeoBundleLazy 'tyru/open-browser.vim',{
 NeoBundleLazy 'kannokanno/previm',{
 	\"autoload" : {"filetypes" :["markdown"]}
 	\}
+NeoBundle 'tpope/vim-haml'
+
 
 NeoBundleLazy 'glsl.vim'
 augroup NeoBundleLazyForShader
@@ -467,7 +469,7 @@ if has('syntax')
 		autocmd VimEnter,WinEnter * let w:m1 = matchadd("Zenkaku", '[　０１２３４５６７８９]')
 		autocmd VimEnter,WinEnter * let w:m2 = matchadd("Zenkaku", '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
 		autocmd VimEnter,WinEnter * let w:m3 = matchadd("Zenkaku", '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
-		autocmd VimEnter,WinEnter * let w:m4 = matchadd("Zenkaku", '^ \+')
+		"autocmd VimEnter,WinEnter * let w:m4 = matchadd("Zenkaku", '^ \+')
 		autocmd VimEnter,WinEnter * let w:m5 = matchadd("Zenkaku", '\s\+$')
 	augroup END
 	call Zenkaku()
