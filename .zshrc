@@ -48,7 +48,7 @@ export TERM=xterm-256color
 function tmux-attach() {
     # Launching tmux inside a zle widget is not easy
     # Hence, We delegate the work to the parent zsh
-    BUFFER=" { tmux list-sessions >& /dev/null && tmux attach } || tmux new -s myproject"
+    BUFFER=" { tmux list-sessions >& /dev/null && tmux attach -t $(tmux list-sessions | peco | awk -F':' '{print $1}') } || tmux new -s $RANDOM"
     zle accept-line
 }
 zle -N tmux-attach
