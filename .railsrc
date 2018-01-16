@@ -1,0 +1,3 @@
+--skip-test
+--database mysql
+--skip-bundle
