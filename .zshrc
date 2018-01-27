@@ -167,6 +167,9 @@ setopt hist_ignore_dups
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 
+# historyの共有
+setopt share_history
+
 ## cd 時に自動で push
 setopt auto_pushd
 
