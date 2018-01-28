@@ -259,12 +259,5 @@ function func_fg() {
 }
 zle -N func_fg
 bindkey '^y' func_fg
-
-
-
-
-# enhancd
-source ~/dotfiles/enhancd/init.sh
-
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
