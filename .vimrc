@@ -166,6 +166,7 @@ nnoremap <silent> <C-^> :setlocal number!<CR>
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
 au BufNewFile,BufRead *.js  set tags+=$HOME/js.tags
 au BufNewFile,BufRead *.pm  set tags+=$HOME/pl.tags
+au BufNewFile,BufRead *.rb  set tags+=$HOME/rb.tags
 
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.t   set filetype=perl
@@ -275,7 +276,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
-
+let g:syntastic_go_checkers = ['go', 'golint']
 " <F7>でシンタックスチェック
 nnoremap <F7> :SyntasticCheck<CR>
 
