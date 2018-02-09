@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+# usage: ./gt [day] git commit
+
+use strict;
+use warnings;
+
+my $rewind_day = shift @ARGV || 0;
+
+my $time_str = scalar(localtime(time() - $rewind_day*60*60*24)) . ' +0900';
+
+my $command = <<"EOT";
+export GIT_AUTHOR_DATE="$time_str";export GIT_COMMITTER_DATE="$time_str";
+EOT
+
+$command .= join(" ", @ARGV);
+
+exec($command);
