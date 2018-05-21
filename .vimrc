@@ -74,6 +74,9 @@ NeoBundle 'saihoooooooo/vim-textobj-space'
 NeoBundleLazy 'elixir-lang/vim-elixir',{
 	\"autoload" : {"filetypes" :["elixir"]}
 	\}
+NeoBundleLazy 'fatih/vim-go',{
+	\"autoload" : {"filetypes" :["go"]}
+	\}
 
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'kmnk/vim-unite-giti'
@@ -241,6 +244,7 @@ nnoremap <silent> <C-g> :Gstatus<CR><C-w>T
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " 現在のタブでタグジャンプ(ctags)
 map \ :exec("tag ".expand("<cword>"))<CR>
+autocmd BufNewFile,BufRead *.go map \ <C-]>
 
 " 以下 gtags 設定
 " このファイルの関数一覧
@@ -268,7 +272,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_mode_map = { 'mode': 'active',
-	\ 'passive_filetypes': ['perl'] }
+	\ 'passive_filetypes': ['perl', 'go'] }
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_always_populate_loc_list = 1
