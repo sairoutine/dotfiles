@@ -33,8 +33,6 @@ alias vi='vim'
 alias chbg='~/dotfiles/chbg'
 alias imgcat='~/dotfiles/imgcat'
 
-PS1="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
-
 # 移動後にls
 function chpwd() { ls }
 
@@ -54,6 +52,10 @@ function tmux-attach() {
 zle -N tmux-attach
 bindkey '^f' tmux-attach
 #tmux-attach
+
+function countsource () {
+	find . -name "*."$1 | xargs wc -l
+}
 
 pecoa()
 {
@@ -142,7 +144,7 @@ precmd () {
 RPROMPT="%1(v|%F{green}%1v%f|)"
 
 #PROMPT='$ '
-PROMPT='[%C] '
+PROMPT='($?)[%C] '
 
 
 export EDITOR=vim        # エディタをvimに設定
@@ -260,4 +262,3 @@ function func_fg() {
 zle -N func_fg
 bindkey '^y' func_fg
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-

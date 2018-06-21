@@ -75,7 +75,7 @@ NeoBundleLazy 'elixir-lang/vim-elixir',{
 	\"autoload" : {"filetypes" :["elixir"]}
 	\}
 NeoBundleLazy 'fatih/vim-go',{
-	\"autoload" : {"filetypes" :["go"]}
+	\"autoload" : {"filetypes" :["go", "gohtmltmpl"]}
 	\}
 
 NeoBundle 'kana/vim-tabpagecd'
@@ -280,7 +280,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_go_checkers = ['go', 'golint']
+let g:syntastic_go_checkers = ['go']
 " <F7>でシンタックスチェック
 nnoremap <F7> :SyntasticCheck<CR>
 
