@@ -344,6 +344,12 @@ nnoremap <f10> :PrevimOpen<CR>
 let g:previm_open_cmd = 'open -a "Google Chrome"'
 
 "---------------------------
+" vim-go Settings.
+"---------------------------
+
+let g:go_fmt_command = "goimports"
+
+"---------------------------
 " NeoSnippet
 " --------------------------
 let g:neosnippet#enable_snipmate_compatibility = 1
