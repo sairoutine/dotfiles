@@ -33,6 +33,8 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'heavenshell/vim-jsdoc'
+
 NeoBundleLazy "pangloss/vim-javascript",{
 	\"autoload" : {"filetypes" :["javascript"]}
 	\}
@@ -458,6 +460,14 @@ map #  <Plug>(asterisk-z#)
 map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 let g:asterisk#keeppos = 1
+
+" ========================================
+" jsdoc
+" ========================================
+let g:jsdoc_default_mapping = 0
+let g:jsdoc_underscore_private = 1
+let g:jsdoc_enable_es6 = 1
+nnoremap <silent> <C-l> :JsDoc<CR>
 
 " ========================================
 " vim-easy-align

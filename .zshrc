@@ -261,4 +261,9 @@ function func_fg() {
 }
 zle -N func_fg
 bindkey '^y' func_fg
+
+
+function notify() {
+	terminal-notifier -message done
+}
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
