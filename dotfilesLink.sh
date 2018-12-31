@@ -11,7 +11,7 @@ ln -snf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -snf ~/dotfiles/.gitignore ~/.gitignore
 ln -snf ~/dotfiles/.zshrc ~/.zshrc
 ln -snf ~/dotfiles/.npmrc ~/.npmrc
-ln -snf ~/dotfiles/.eslintrc ~/.eslintrc
+ln -snf ~/dotfiles/.eslintrc.json ~/.eslintrc.json
 ln -snf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -snf ~/dotfiles/.ssh/config ~/.ssh/config
 ln -snf ~/dotfiles/.gdbinit ~/.gdbinit

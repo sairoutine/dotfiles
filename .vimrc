@@ -41,13 +41,20 @@ NeoBundleLazy "pangloss/vim-javascript",{
 NeoBundleLazy 'othree/html5.vim',{
 	\"autoload" : {"filetypes" :["html"]}
 	\}
-NeoBundleLazy 'tyru/open-browser.vim',{
-	\"autoload" : {"filetypes" :["markdown"]}
+NeoBundleLazy 'tpope/vim-haml', {
+\  'autoload': {
+\    'filetypes': ['scss', 'sass', 'haml']
+\  }
+\}
+NeoBundleLazy 'leafgarland/typescript-vim',{
+	\"autoload" : {"filetypes" :["typescript"]}
 	\}
-NeoBundleLazy 'kannokanno/previm',{
-	\"autoload" : {"filetypes" :["markdown"]}
+NeoBundleLazy 'elixir-lang/vim-elixir',{
+	\"autoload" : {"filetypes" :["elixir"]}
 	\}
-NeoBundle 'tpope/vim-haml'
+NeoBundleLazy 'fatih/vim-go',{
+	\"autoload" : {"filetypes" :["go", "gohtmltmpl"]}
+	\}
 
 
 NeoBundleLazy 'glsl.vim'
@@ -72,13 +79,6 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'thinca/vim-textobj-comment'
 NeoBundle 'saihoooooooo/vim-textobj-space'
-
-NeoBundleLazy 'elixir-lang/vim-elixir',{
-	\"autoload" : {"filetypes" :["elixir"]}
-	\}
-NeoBundleLazy 'fatih/vim-go',{
-	\"autoload" : {"filetypes" :["go", "gohtmltmpl"]}
-	\}
 
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'kmnk/vim-unite-giti'
@@ -540,39 +540,6 @@ function! ReadJSFile() abort
   execute ':tabe ' . s:fullName
 endfunction
 autocmd FileType javascript nmap <C-g>  :call ReadJSFile()<CR>
-
-"""""""""""""""""""""""""""""""""""" translate markdown
-function! s:translate_markdown(lang) abort
-    if &filetype !=# 'markdown'
-        echoerr 'Not a Markdown buffer!'
-    endif
-
-    if !executable('translate-markdown')
-        echoerr '`translate-markdown` command is not found!'
-    endif
-
-    let start = getpos("'<")
-    let end = getpos("'>")
-    let saved = getpos('.')
-
-    call setpos('.', start)
-    normal! v
-    call setpos('.', end)
-
-    let save_reg_g = getreg('g')
-    let save_regtype_g = getregtype('g')
-    try
-        normal! "gy
-        let input = getreg('g')
-    finally
-        call setreg('g', save_reg_g, save_regtype_g)
-    endtry
-
-    let result = system('translate-markdown ' . a:lang, input)
-    echo result
-endfunction
-command! -nargs=0 -range=% TranslateMarkdown call <SID>translate_markdown('ja')<CR>
-autocmd FileType markdown noremap <C-o> :TranslateMarkdown<CR>
 
 " ファイルを開いた時に前回のカーソル位置に移動
 
