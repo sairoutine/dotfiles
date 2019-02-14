@@ -76,7 +76,7 @@ alias -g M='`git status -s | egrep "^ +[MA]" | awk "{print$2}" | peco`'
 # D 配下のディレクトリ一覧
 alias -g D='$(find ./ -path "*/\.*" -name .git -prune -o -type d -print 2> /dev/null | peco)'
 # F 配下のファイル一覧
-alias -g F='$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | peco)'
+alias -g F='$(find ./ -path "*/\.*" -name .git -prune -o -type f -print 2> /dev/null | peco)'
 
 ###############################################
 # zsh function
