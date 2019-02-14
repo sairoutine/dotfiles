@@ -1,3 +1,29 @@
+bindkey -e
+
+###############################################
+# export
+###############################################
+
+export TERM=xterm-256color
+export EDITOR=vim        # エディタをvimに設定
+# 文字コードをUTF-8に設定
+export LC_CTYPE=ja_JP.UTF-8
+export LANG=ja_JP.UTF-8
+export KCODE=u           # KCODEにUTF-8を設定
+
+# 履歴ファイルの保存先
+export HISTFILE=${HOME}/.zsh_history
+
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=100000
+
+###############################################
+# その他
+###############################################
+
 # SSH Forward
 agent="$HOME/.ssh/agent"
 if [ -S "$SSH_AUTH_SOCK" ]; then
@@ -12,8 +38,7 @@ else
     echo "no ssh-agent"
 fi
 
-bindkey -e
-
+# ls のカラーをOS毎に変更
 case "${OSTYPE}" in
 darwin*)
 	export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -24,25 +49,59 @@ linux*)
 	;;
 esac
 
+###############################################
+# alias
+###############################################
+
+# typo
 alias g='git'
 alias gi='git'
+alias gti='git'
 alias v='vim'
 alias vi='vim'
 
 # macの背景色変更
 alias chbg='~/dotfiles/chbg'
-alias imgcat='~/dotfiles/imgcat'
 
-# 移動後にls
-function chpwd() { ls }
+###############################################
+# global alias
+###############################################
 
+# B ブランチ一覧
+alias -g B='`git branch | peco | tr -d " "`'
 
+# M 変更ファイル一覧
+alias -g M='`git status -s | egrep "^ +[MA]" | awk "{print$2}" | peco`'
+
+# D 配下のディレクトリ一覧
+alias -g D='$(find ./ -path "*/\.*" -name .git -prune -o -type d -print 2> /dev/null | peco)'
+# F 配下のファイル一覧
+alias -g F='$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | peco)'
+
+###############################################
+# zsh function
+###############################################
+
+# git のルートディレクトリに移動
 function repo () {
 	cd `git rev-parse --show-toplevel`
 }
 
-export TERM=xterm-256color
+# countsource 拡張子でカレントディレクトリを再帰的にソースコード行数を数える
+function countsource () {
+	find . -name "*."$1 | xargs wc -l
+}
 
+# notify で完了を Mac に通知
+function notify() {
+	terminal-notifier -message done
+}
+
+###############################################
+# key bind
+###############################################
+
+# Ctrl+f で tmux にアタッチ or tmux 作成
 function tmux-attach() {
     # Launching tmux inside a zle widget is not easy
     # Hence, We delegate the work to the parent zsh
@@ -51,51 +110,8 @@ function tmux-attach() {
 }
 zle -N tmux-attach
 bindkey '^f' tmux-attach
-#tmux-attach
 
-function countsource () {
-	find . -name "*."$1 | xargs wc -l
-}
-
-pecoa()
-{
-	local file="$(git status -s | egrep '^ +[MA]' | awk '{print$2}' | peco)"
-
-	if [ -n "$file" ]; then
-		git add ${file}
-	fi
-}
-
-pecob()
-{
-    local selected_branch_name="$(git branch | peco | tr -d ' ')"
-
-	if [ -n "$selected_branch_name" ]; then
-		git checkout ${selected_branch_name}
-	fi
-}
-pecod()
-{
-	local file="$(git status -s | egrep '^ +[MA]' | awk '{print$2}' | peco)"
-
-	if [ -n "$file" ]; then
-		git diff ${file}
-	fi
-}
-cdr()
-{
-    local dir="$(dirs -v | peco | awk '{print $1}')"
-
-	if [ -n "$dir" ]; then
-		pushd +${dir} >/dev/null
-		ls
-		if [ -n "$TMUX" ]; then
-			local current_path=`pwd`
-			local current_dir=`basename $current_path`
-			tmux rename-window $current_dir
-		fi
-	fi
-}
+# Ctrl+r で command history
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
@@ -112,10 +128,20 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+# Ctrl+u で一つ上のディレクトリに移動
+function cdup() {
+   echo
+   cd ..
+   zle reset-prompt
+}
+zle -N cdup
+bindkey '^u' cdup
 
-#-----------------------------
+###############################################
+# zsh 設定
+###############################################
+
 # 補完機能を有効化
-#-----------------------------
 autoload -Uz compinit
 compinit
 # 2個以上接続選択肢があった場合プロンプトによる選択を行う
@@ -146,24 +172,11 @@ RPROMPT="%1(v|%F{green}%1v%f|)"
 #PROMPT='$ '
 PROMPT='($?)[%C] '
 
-
-export EDITOR=vim        # エディタをvimに設定
-# 文字コードをUTF-8に設定
-export LC_CTYPE=ja_JP.UTF-8
-export LANG=ja_JP.UTF-8
-export KCODE=u           # KCODEにUTF-8を設定
-
 setopt auto_cd
+
+# 移動後にls
+# zshではchpwd関数を定義することで、ディレクトリ移動後に任意のコマンドを実行することができます。
 function chpwd() { ls }
-
-# 履歴ファイルの保存先
-export HISTFILE=${HOME}/.zsh_history
-
-# メモリに保存される履歴の件数
-export HISTSIZE=1000
-
-# 履歴ファイルに保存される履歴の件数
-export SAVEHIST=100000
 
 # 重複を記録しない
 setopt hist_ignore_dups
@@ -180,92 +193,9 @@ setopt auto_pushd
 ## 同じディレクトリを pushd しない
 setopt pushd_ignore_dups
 
-# bd.zsh start
-bd () {
-  (($#<1)) && {
-    print -- "usage: $0 <name-of-any-parent-directory>"
-    print -- "       $0 <number-of-folders>"
-    return 1
-  } >&2
-  # example:
-  #   $PWD == /home/arash/abc ==> $num_folders_we_are_in == 3
-  local num_folders_we_are_in=${#${(ps:/:)${PWD}}}
-  local dest="./"
-
-  # First try to find a folder with matching name (could potentially be a number)
-  # Get parents (in reverse order)
-  local parents
-  local i
-  for i in {$((num_folders_we_are_in+1))..2}
-  do
-    parents=($parents "$(echo $PWD | cut -d'/' -f$i)")
-  done
-  parents=($parents "/")
-  # Build dest and 'cd' to it
-  local parent
-  foreach parent (${parents})
-  do
-    if [[ $1 == $parent ]]
-    then
-      cd $dest
-      return 0
-    fi
-    dest+="../"
-  done
-
-  # If the user provided an integer, go up as many times as asked
-  dest="./"
-  if [[ "$1" = <-> ]]
-  then
-    if [[ $1 -gt $num_folders_we_are_in ]]
-    then
-      print -- "bd: Error: Can not go up $1 times (not enough parent directories)"
-      return 1
-    fi
-    for i in {1..$1}
-    do
-      dest+="../"
-    done
-    cd $dest
-    return 0
-  fi
-
-  # If the above methods fail
-  print -- "bd: Error: No parent directory named '$1'"
-  return 1
-}
-_bd () {
-  # Get parents (in reverse order)
-  local num_folders_we_are_in=${#${(ps:/:)${PWD}}}
-  local i
-  for i in {$((num_folders_we_are_in+1))..2}
-  do
-    reply=($reply "`echo $PWD | cut -d'/' -f$i`")
-  done
-  reply=($reply "/")
-}
-compctl -V directories -K _bd bd
-# bd.zsh end
-
-
-function cdup() {
-   echo
-   cd ..
-   zle reset-prompt
-}
-zle -N cdup
-bindkey '^u' cdup
-
-function func_fg() {
-	echo
-	fg
-	zle reset-prompt  # プロンプトを再描画
-}
-zle -N func_fg
-bindkey '^y' func_fg
-
-
-function notify() {
-	terminal-notifier -message done
-}
+###############################################
+# .zshrc.local があればそれを読む
+###############################################
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+
