@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# usage: multi_ssh host_name
+
 if [ -n "$SESSION_NAME" ];then
   session=$SESSION_NAME
 else
