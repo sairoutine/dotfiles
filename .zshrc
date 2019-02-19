@@ -71,7 +71,7 @@ alias chbg='~/dotfiles/chbg'
 alias -g B='`git branch | peco | tr -d " "`'
 
 # M 変更ファイル一覧
-alias -g M='`git status -s | egrep "^ +[MA]" | awk "{print$2}" | peco`'
+alias -g M='`git status -s | egrep "^ +[MA]" | awk "{print\\$2}" | peco`'
 
 # D 配下のディレクトリ一覧
 alias -g D='$(find ./ -path "*/\.*" -name .git -prune -o -type d -print 2> /dev/null | peco)'
