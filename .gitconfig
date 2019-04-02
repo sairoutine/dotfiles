@@ -21,6 +21,7 @@
 	quotepath = false
 	preloadindex = true
 	fscache = true
+	ignorecase = false
 [alias]
 	co = checkout
 	st = status
