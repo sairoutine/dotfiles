@@ -762,6 +762,7 @@
     "no-script-url": 2,
     "no-sequences": 2,
     "no-shadow": 0,
+    "no-dupe-keys": 2,
     "no-undef": 2,
     "no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": false }],
     "no-with": 2,
