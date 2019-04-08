@@ -42,10 +42,17 @@ fi
 case "${OSTYPE}" in
 darwin*)
 	export LSCOLORS=gxfxcxdxbxegedabagacad
-	alias ls="ls -aG"
+	alias ls="clear && ls -aG"
 	;;
 linux*)
-	alias ls='ls --color=auto -aG'
+	alias ls='clear && ls --color=auto -aG'
+	;;
+esac
+
+# macOS のみ、d でデスクトップへ
+case "${OSTYPE}" in
+darwin*)
+	alias d='cd ~/Desktop'
 	;;
 esac
 
@@ -77,6 +84,16 @@ alias -g M='`git status -s | egrep "^ +[MA]" | awk "{print\\$2}" | peco`'
 alias -g D='$(find ./ -path "*/\.*" -name .git -prune -o -type d -print 2> /dev/null | peco)'
 # F 配下のファイル一覧
 alias -g F='$(find ./ -path "*/\.*" -name .git -prune -o -type f -print 2> /dev/null | peco)'
+
+
+
+###############################################
+# suffix alias
+###############################################
+
+alias -s gz='tar -xzvf' # ./hoge.tar.gz で展開できる
+alias -s html='open' # ./index.html でブラウザで開く
+# alias -s {mp3,mp4,wav,mkv,m4v,m4a,wmv,avi,mpeg,mpg,vob,mov,rm}='mplayer' # こんな定義も可能
 
 ###############################################
 # zsh function
