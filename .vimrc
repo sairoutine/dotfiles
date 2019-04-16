@@ -128,7 +128,7 @@ set fileencodings=utf-8,euc-jp,cp932,sjis
 
 
 "----------------------------
-" Color
+" Ignore 
 "----------------------------
 map <Up> <Nop>
 map <Down> <Nop>
@@ -140,6 +140,20 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 inoremap <BS> <Nop>
+
+"----------------------------
+" Move
+"----------------------------
+nnoremap <S-k> 10<UP>
+nnoremap <S-j> 10<DOWN>
+nnoremap <S-h> 10<LEFT>
+nnoremap <S-l> 10<RIGHT>
+
+vnoremap <S-k> 10<UP>
+vnoremap <S-j> 10<DOWN>
+vnoremap <S-h> 10<LEFT>
+vnoremap <S-l> 10<RIGHT>
+
 "----------------------------
 " Color
 "----------------------------
@@ -350,6 +364,9 @@ let g:previm_open_cmd = 'open -a "Google Chrome"'
 "---------------------------
 
 let g:go_fmt_command = "goimports"
+
+" shift+k を無効
+let g:go_doc_keywordprg_enabled = 0
 
 "---------------------------
 " NeoSnippet
