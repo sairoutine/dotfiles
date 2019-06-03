@@ -55,7 +55,9 @@ NeoBundleLazy 'elixir-lang/vim-elixir',{
 NeoBundleLazy 'fatih/vim-go',{
 	\"autoload" : {"filetypes" :["go", "gohtmltmpl"]}
 	\}
-
+NeoBundleLazy 'posva/vim-vue',{
+	\"autoload" : {"filetypes" :["vue"]}
+	\}
 
 NeoBundleLazy 'glsl.vim'
 augroup NeoBundleLazyForShader
@@ -491,6 +493,13 @@ nnoremap <silent> <C-l> :JsDoc<CR>
 " ========================================
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
+
+" ========================================
+" vim-vue
+" ========================================
+" ファイルの先頭からパースしてハイライトを行う設定を追記する
+autocmd FileType vue syntax sync fromstart
+
 
 " ========================================
 " Functional settings
