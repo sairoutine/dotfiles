@@ -90,7 +90,7 @@ NeoBundle 'haya14busa/vim-asterisk'
 " spaceを揃える
 NeoBundle 'junegunn/vim-easy-align'
 
-NeoBundle 'dfxyz/CandyPaper.vim'
+NeoBundle 'dfxyz/CandyPaper.vim', '8b3ac65c9e4acf707aee6edded3751cff068628e'
 
 NeoBundle 'vim-scripts/gtags.vim'
 
