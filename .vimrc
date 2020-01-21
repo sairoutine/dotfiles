@@ -52,7 +52,7 @@ NeoBundleLazy 'leafgarland/typescript-vim',{
 NeoBundleLazy 'elixir-lang/vim-elixir',{
 	\"autoload" : {"filetypes" :["elixir"]}
 	\}
-NeoBundleLazy 'fatih/vim-go',{
+NeoBundleLazy 'fatih/vim-go', "v1.19", {
 	\"autoload" : {"filetypes" :["go", "gohtmltmpl"]}
 	\}
 NeoBundleLazy 'posva/vim-vue',{
@@ -198,7 +198,8 @@ autocmd Filetype json setl conceallevel=0
 " markdownファイル編集時にダブルクオーテーションを表示する
 autocmd Filetype markdown setl conceallevel=0
 
-
+" C#ファイルは、Unityのデフォルトに従ってスペースでインデントする
+autocmd Filetype cs setl expandtab
 
 " Dynamic SQL completionの無効
 let g:omni_sql_no_default_maps = 1
