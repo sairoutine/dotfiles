@@ -116,7 +116,7 @@ module.exports = {
     bell: 'false',
 
     // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
-    copyOnSelect: false,
+    copyOnSelect: true,
 
     // if `true` (without backticks and without quotes), hyper will be set as the default protocol client for SSH
     defaultSSHApp: true,
@@ -146,7 +146,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyperfullscreen"],
+  plugins: ["hyperfullscreen", "hyperterm-focus-reporting"],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
