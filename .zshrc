@@ -98,7 +98,7 @@ alias -s html='open' # ./index.html でブラウザで開く
 ###############################################
 
 # git のレポジトリどれかに移動
-function root () {
+function repo () {
 	cd $(ghq root)/$(ghq list | peco)
 }
 
