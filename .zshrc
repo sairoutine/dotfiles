@@ -85,8 +85,6 @@ alias -g D='$(find ./ -path "*/\.*" -name .git -prune -o -type d -print 2> /dev/
 # F 配下のファイル一覧
 alias -g F='$(find ./ -path "*/\.*" -name .git -prune -o -type f -print 2> /dev/null | peco)'
 
-
-
 ###############################################
 # suffix alias
 ###############################################
@@ -99,8 +97,13 @@ alias -s html='open' # ./index.html でブラウザで開く
 # zsh function
 ###############################################
 
+# git のレポジトリどれかに移動
+function root () {
+	cd $(ghq root)/$(ghq list | peco)
+}
+
 # git のルートディレクトリに移動
-function repo () {
+function root () {
 	cd `git rev-parse --show-toplevel`
 }
 
@@ -113,6 +116,8 @@ function countsource () {
 function notify() {
 	terminal-notifier -message done
 }
+
+
 
 ###############################################
 # key bind
