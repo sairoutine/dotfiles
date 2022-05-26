@@ -57,6 +57,9 @@ NeoBundleLazy 'fatih/vim-go', "v1.19", {
 NeoBundleLazy 'posva/vim-vue',{
 	\"autoload" : {"filetypes" :["vue"]}
 	\}
+NeoBundleLazy 'uarun/vim-protobuf',{
+	\"autoload" : {"filetypes" :["proto"]}
+	\}
 
 NeoBundleLazy 'glsl.vim'
 augroup NeoBundleLazyForShader
