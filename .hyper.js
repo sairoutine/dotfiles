@@ -138,6 +138,12 @@ module.exports = {
     webGLRenderer: true,
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    pokemon: 'haunter', // Choose your favorite pokemon theme
+    unibody: 'true', // Choose the color of the window header
+    poketab: 'true', // Deactivate your theme's poketab
+
+    overrideCursorColor: 'rgba(255,255,255,0.8)',
   },
 
   // a list of plugins to fetch and install from npm
@@ -149,7 +155,9 @@ module.exports = {
   plugins: [
     "hyperfullscreen",
     "hyperterm-focus-reporting",
-    "hyperminimal"
+    "hyperminimal",
+    "hyper-pokemon",
+    "git@github.com:sairoutine/hyper-override-cursor-color.git"
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
