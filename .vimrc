@@ -77,7 +77,6 @@ set whichwrap=b,s,h,l,<,>,[,]  " 行末でカーソル移動が止まらない�
 set scrolloff=3                " 3行確保
 set fileencodings=utf-8,euc-jp,cp932,sjis
 
-
 "----------------------------
 " Ignore 
 "----------------------------
@@ -118,9 +117,9 @@ autocmd WinEnter * setl cursorline
 autocmd WinLeave * setl nocursorline
 
 colorscheme CandyPaper
-hi LineNr ctermbg=0 ctermfg=7
-hi CursorLineNr ctermbg=9 ctermfg=0
-hi Comment ctermbg=0, ctermfg=2
+hi LineNr ctermfg=7
+hi CursorLineNr ctermbg=210 ctermfg=16
+hi Comment ctermfg=40
 
 "----------------------------
 " 
@@ -523,7 +522,6 @@ augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
   \ exe "normal g`\"" | endif
 augroup END
-
 
 " 環境依存の.vimrc 設定を読み込む
 if filereadable(expand('~/.vimrc.local'))
