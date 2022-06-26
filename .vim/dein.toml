@@ -1,0 +1,77 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+#[[plugins]]
+#repo = 'Townk/vim-autoclose'
+[[plugins]]
+repo = 'Shougo/neocomplcache'
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+[[plugins]]
+repo = 'scrooloose/syntastic'
+[[plugins]]
+repo = 'Shougo/neosnippet' # 関数補完
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+[[plugins]]
+repo = 'Lokaltog/vim-easymotion'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = 'Shougo/unite.vim'
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+[[plugins]]
+repo = 'tpope/vim-surround'
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc'
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+[[plugins]]
+repo = 'ConradIrwin/vim-bracketed-paste'
+[[plugins]]
+repo = 'othree/eregex.vim'
+[[plugins]]
+repo = 'Shougo/unite-outline'
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+[[plugins]]
+repo = 'thinca/vim-textobj-comment'
+[[plugins]]
+repo = 'saihoooooooo/vim-textobj-space'
+[[plugins]]
+repo = 'kana/vim-tabpagecd'
+[[plugins]]
+repo = 'kmnk/vim-unite-giti'
+[[plugins]]
+repo = 'haya14busa/vim-asterisk' # * でカーソル移動しない)
+[[plugins]]
+repo = 'junegunn/vim-easy-align' # spaceを揃える
+[[plugins]]
+repo = 'dfxyz/CandyPaper.vim'
+rev  = '8b3ac65c9e4acf707aee6edded3751cff068628e'
+[[plugins]]
+repo = 'vim-scripts/gtags.vim'

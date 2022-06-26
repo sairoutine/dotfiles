@@ -5,103 +5,51 @@ if v:version < 703
 	echomsg "Vim のバージョンが7.3未満です。"
 endif
 " ---------------------------
-" Start Neobundle Settings.
+" dein.vim Settings.
 " ---------------------------
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+if &compatible
+	set nocompatible
+endif
 
-" ---------------------------
-" Start Plugin Loading.
-" ---------------------------
-NeoBundle 'scrooloose/nerdtree'
-"NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'scrooloose/syntastic'
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.vim/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" 関数補完
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
 
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'heavenshell/vim-jsdoc'
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-NeoBundleLazy "pangloss/vim-javascript",{
-	\"autoload" : {"filetypes" :["javascript"]}
-	\}
-NeoBundleLazy 'othree/html5.vim',{
-	\"autoload" : {"filetypes" :["html"]}
-	\}
-NeoBundleLazy 'tpope/vim-haml', {
-\  'autoload': {
-\    'filetypes': ['scss', 'sass', 'haml']
-\  }
-\}
-NeoBundleLazy 'leafgarland/typescript-vim',{
-	\"autoload" : {"filetypes" :["typescript"]}
-	\}
-NeoBundleLazy 'elixir-lang/vim-elixir',{
-	\"autoload" : {"filetypes" :["elixir"]}
-	\}
-NeoBundleLazy 'fatih/vim-go', "v1.19", {
-	\"autoload" : {"filetypes" :["go", "gohtmltmpl"]}
-	\}
-NeoBundleLazy 'posva/vim-vue',{
-	\"autoload" : {"filetypes" :["vue"]}
-	\}
-NeoBundleLazy 'uarun/vim-protobuf',{
-	\"autoload" : {"filetypes" :["proto"]}
-	\}
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let g:rc_dir    = expand('~/.vim/')
+  let s:toml      = g:rc_dir . 'dein.toml'
+  let s:lazy_toml = g:rc_dir . 'dein_lazy.toml'
 
-NeoBundleLazy 'glsl.vim'
-augroup NeoBundleLazyForShader
-	autocmd!
-	autocmd BufNewFile,BufRead *.vs,*.fs,*.glsl
-		\ set filetype=glsl
-	autocmd FileType glsl NeoBundleSource
-		\ glsl.vim
-augroup END
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-NeoBundle 'AndrewRadev/switch.vim'
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
 
-NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'ConradIrwin/vim-bracketed-paste'
-
-NeoBundle 'othree/eregex.vim'
-NeoBundle 'Shougo/unite-outline'
-
-
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'thinca/vim-textobj-comment'
-NeoBundle 'saihoooooooo/vim-textobj-space'
-
-NeoBundle 'kana/vim-tabpagecd'
-NeoBundle 'kmnk/vim-unite-giti'
-
-" * でカーソル移動しない
-NeoBundle 'haya14busa/vim-asterisk'
-" spaceを揃える
-NeoBundle 'junegunn/vim-easy-align'
-
-NeoBundle 'dfxyz/CandyPaper.vim', '8b3ac65c9e4acf707aee6edded3751cff068628e'
-
-NeoBundle 'vim-scripts/gtags.vim'
-
-" ---------------------------
-" End Plugin Loading.
-" ---------------------------
-call neobundle#end()
 filetype plugin indent on
-NeoBundleCheck
+syntax enable
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
 "----------------------------
 " Vim Basic Settings.
 "----------------------------

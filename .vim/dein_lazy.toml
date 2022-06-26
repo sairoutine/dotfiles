@@ -1,0 +1,28 @@
+[[plugins]]
+repo  = 'pangloss/vim-javascript'
+on_ft = ['javascript']
+[[plugins]]
+repo  = 'othree/html5.vim'
+on_ft = ['html']
+[[plugins]]
+repo  = 'tpope/vim-haml'
+on_ft = ['scss', 'sass', 'haml']
+[[plugins]]
+repo  = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+[[plugins]]
+repo  = 'elixir-lang/vim-elixir'
+on_ft = ['elixir']
+[[plugins]]
+repo  = 'fatih/vim-go'
+on_ft = ['go', 'gohtmltmpl']
+rev='v1.19'
+[[plugins]]
+repo  = 'posva/vim-vue'
+on_ft = ['vue']
+[[plugins]]
+repo  = 'uarun/vim-protobuf'
+on_ft = ['proto']
+[[plugins]]
+repo  = 'vim-scripts/glsl.vim'
+on_ft = ['vs','fs','glsl']

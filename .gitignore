@@ -2,6 +2,6 @@
 .DS_Store
 node_modules/
 .vim/.netrwhist
-.vim/bundle/*
+.vim/dein/*
 !.gitkeep
 npm-debug.log
