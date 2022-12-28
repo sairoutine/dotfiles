@@ -135,13 +135,13 @@ module.exports = {
 
     // Whether to use the WebGL renderer. Set it to false to use canvas-based
     // rendering (slower, but supports transparent backgrounds)
-    webGLRenderer: true,
+    webGLRenderer: false,
 
     // for advanced config flags please refer to https://hyper.is/#cfg
 
-    pokemon: 'haunter', // Choose your favorite pokemon theme
+    touhou: 'reimu', // Choose your favorite pokemon theme
     unibody: 'true', // Choose the color of the window header
-    poketab: 'true', // Deactivate your theme's poketab
+    tabicon: 'true', // Deactivate your theme's poketab
 
     overrideCursorColor: 'rgba(255,255,255,0.8)',
   },
@@ -156,16 +156,15 @@ module.exports = {
     "hyperfullscreen",
     "hyperterm-focus-reporting",
     "hyperminimal",
-    "hyper-pokemon",
-    "git@github.com:sairoutine/hyper-override-cursor-color.git"
   ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: [],
+  localPlugins: [
+  ],
 
   keymaps: {
     // Example
-    // 'window:devtools': 'cmd+alt+o',
+    'window:devtools': 'cmd+alt+o',
   },
 };
