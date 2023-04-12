@@ -5,7 +5,7 @@ bindkey -e
 ###############################################
 
 export TERM=xterm-256color
-export EDITOR=vim        # エディタをvimに設定
+export EDITOR=nvim        # エディタをvimに設定
 # 文字コードをUTF-8に設定
 export LC_CTYPE=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
@@ -64,8 +64,9 @@ esac
 alias g='git'
 alias gi='git'
 alias gti='git'
-alias v='vim'
-alias vi='vim'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 
 # macの背景色変更
 alias chbg='~/dotfiles/chbg'
