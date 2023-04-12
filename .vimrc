@@ -56,7 +56,6 @@ syntax on                      " 構文ハイライト表示
 set number                     " 行番号表示
 set tabstop=4                  " tab幅4
 set shiftwidth=4               " シフト幅4
-"set expandtab                 " タブの代わりにスペースを挿入
 set showmatch                  " 対応する閉じ括弧を表示
 set cindent                    " Cスタイルのインデント
 set mouse=a                    " マウス機能
@@ -107,7 +106,6 @@ vnoremap <S-l> 10<RIGHT>
 "----------------------------
 " Color
 "----------------------------
-"colorscheme elflord           "カラー設定
 
 "カーソルのある行をハイライト
 set cursorline
