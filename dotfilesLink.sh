@@ -6,6 +6,7 @@
 DIR=$(cd $(dirname $0); pwd)
 
 ln -snf ~/dotfiles/.vimrc ~/.vimrc
+mkdir -p ~/.config/nvim; ln -snf ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -snf ~/dotfiles/.vim ~/.vim
 ln -snf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -snf ~/dotfiles/.gitignore ~/.gitignore
