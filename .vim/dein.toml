@@ -27,8 +27,15 @@ repo = 'Shougo/neosnippet' # 関数補完
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
-repo = 'Shougo/neocomplcache'
-depends = ['neosnippet']
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+if = 'has("python3")'
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if = '!has("nvim") && has("python3")'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = '!has("nvim") && has("python3")'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 [[plugins]]
