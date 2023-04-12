@@ -294,6 +294,9 @@ let g:go_fmt_command = "goimports"
 " shift+k を無効
 let g:go_doc_keywordprg_enabled = 0
 
+"let g:go_def_mode = 'guru' " デフォルト
+let g:go_def_mode = 'godef'
+
 "---------------------------
 " NeoSnippet
 " --------------------------
