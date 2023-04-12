@@ -127,7 +127,8 @@ hi Comment ctermfg=40
 nnoremap <C-]> g<C-]>
 
 " Ctrl + ^ で行数表示の切り替え
-nnoremap <silent> <C-^> :setlocal number!<CR>
+" TODO: なぜか有効にならないのでコメントアウト
+" nnoremap <silent> <C-^> :setlocal number!<CR>
 
 " 拡張子で読み込みctagsを変更
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
