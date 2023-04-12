@@ -15,6 +15,7 @@ repo  = 'elixir-lang/vim-elixir'
 on_ft = ['elixir']
 [[plugins]]
 repo  = 'fatih/vim-go'
+build = ['GoInstallBinaries']
 on_ft = ['go', 'gohtmltmpl']
 rev='v1.19'
 [[plugins]]
