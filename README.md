@@ -5,3 +5,8 @@
 ```
 brew install git
 ```
+3. install dotfiles
+```
+cd ~/
+git clone git@github.com:sairoutine/dotfiles.git
+```
