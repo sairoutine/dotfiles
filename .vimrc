@@ -350,7 +350,7 @@ let g:EasyMotion_space_jump_first = 1
 " Unite.vim
 " ========================================
 
-let g:unite_split_rule = 'botright'
+let g:unite_split_rule = 'topleft' " 'botright' だと逆順に入力になって壊れてしまうため
 
 " insert modeで開始
 let g:unite_enable_start_insert = 1
