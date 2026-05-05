@@ -17,7 +17,7 @@ on_ft = ['elixir']
 repo  = 'fatih/vim-go'
 build = ['GoInstallBinaries']
 on_ft = ['go', 'gohtmltmpl']
-rev='v1.19'
+rev='v1.29'
 [[plugins]]
 repo  = 'posva/vim-vue'
 on_ft = ['vue']
