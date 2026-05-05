@@ -11,3 +11,8 @@ brew install git
 cd ~/
 git clone git@github.com:sairoutine/dotfiles.git
 ```
+4. exec dotfilesLink.sh
+```
+cd ~/dotfiles/
+sudo ./dotfilesLink.sh
+```
