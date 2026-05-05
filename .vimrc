@@ -74,6 +74,7 @@ set confirm                    " 保存されてないファイルは終了前�
 set hidden                     " 保存されていないファイルがあっても別のファイルを開ける
 set whichwrap=b,s,h,l,<,>,[,]  " 行末でカーソル移動が止まらないようにする
 set scrolloff=3                " 3行確保
+set notermguicolors            " 期待どおりの色に設定 ref. https://qiita.com/mitsu-yuki/items/4d16f2efdb017cc1f996
 set fileencodings=utf-8,euc-jp,cp932,sjis
 
 " nvim は多分標準でノーマルモード(ブロック)とインサートモード(Iビーム)で、カーソル形状が切り替わるようになっている。
