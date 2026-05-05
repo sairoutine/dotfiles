@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# usage: sudo dotfilesLink.sh
+# usage: sudo ./dotfilesLink.sh
 
 # 現在のディレクトリ
 DIR=$(cd $(dirname $0); pwd)
