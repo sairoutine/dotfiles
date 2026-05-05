@@ -16,3 +16,11 @@ git clone git@github.com:sairoutine/dotfiles.git
 cd ~/dotfiles/
 sudo ./dotfilesLink.sh
 ```
+5. install following applications
+```
+hyper.js
+zsh
+nvim
+tmux
+```
+6. setup vim
