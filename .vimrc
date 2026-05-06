@@ -293,13 +293,14 @@ let g:previm_open_cmd = 'open -a "Google Chrome"'
 " vim-go Settings.
 "---------------------------
 
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gopls"
 
 " shift+k を無効
 let g:go_doc_keywordprg_enabled = 0
 
 "let g:go_def_mode = 'guru' " デフォルト
-let g:go_def_mode = 'godef'
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 
 "---------------------------
 " NeoSnippet
