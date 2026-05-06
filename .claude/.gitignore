@@ -1,0 +1,11 @@
+# 全部無視してから許可リストで上書き
+*
+
+# 管理対象
+!.gitignore
+!settings.json
+!CLAUDE.md
+!commands/
+!agents/
+!keybindings.json
+!memory/
